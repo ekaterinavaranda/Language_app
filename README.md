@@ -1,6 +1,6 @@
 # Happy Learning
 
-Learn Russian & Portuguese vocabulary through quick multiple-choice quizzes, with pronunciation playback, pictures, and a local leaderboard.
+Learn Russian & Portuguese vocabulary through quick multiple-choice quizzes, with pronunciation playback, pictures, and a leaderboard shared across devices.
 
 ## How it works
 
@@ -9,7 +9,7 @@ Learn Russian & Portuguese vocabulary through quick multiple-choice quizzes, wit
 3. Pick a difficulty: Easy, Medium, Hard, or Insane.
 4. Pick a category: Animals, Colors, Food, Verbs, and more.
 5. Answer 10 multiple-choice questions — each answer shows a picture, the word, and an approximate pronunciation guide, and is spoken aloud when clicked.
-6. See your score at the end. Score 7+ triggers a confetti celebration. Your best score per name is saved to the leaderboard.
+6. See your score at the end. Score 7+ triggers a confetti celebration. Your best score per name is saved to a leaderboard shared across every device and session.
 
 ## Running it
 
@@ -17,4 +17,4 @@ No build step or server required — just open `index.html` in a browser.
 
 ## Tech
 
-Plain HTML/CSS/JavaScript. Pronunciation uses the browser's built-in Web Speech API. Results are stored locally in the browser via `localStorage`.
+Plain HTML/CSS/JavaScript. Pronunciation uses the browser's built-in Web Speech API. The leaderboard is stored in Firebase Firestore (config in `firebase-config.js` — the API key there is safe to expose; access is governed by Firestore security rules, not by secrecy).

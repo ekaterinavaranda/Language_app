@@ -4,7 +4,6 @@
   const QUESTIONS_PER_QUIZ = 10;
   const CHOICES_PER_QUESTION = 4;
   const CELEBRATION_THRESHOLD = 7;
-  const LEADERBOARD_KEY = "happyLearningLeaderboard";
   const LAST_NAME_KEY = "happyLearningLastName";
 
   const state = {
@@ -132,6 +131,7 @@
       `${(state.currentIndex / QUESTIONS_PER_QUIZ) * 100}%`;
     document.getElementById("quiz-score").textContent = state.score;
     document.getElementById("quiz-word").textContent = q.word.en;
+    document.getElementById("quiz-word-emoji").textContent = q.word.emoji || "🔤";
 
     const grid = document.getElementById("answers-grid");
     grid.innerHTML = "";
@@ -167,7 +167,10 @@
     speak(choice.word[state.lang], state.lang);
 
     const allButtons = document.querySelectorAll(".answer-btn");
-    allButtons.forEach((b) => (b.disabled = true));
+    allButtons.forEach((b) => {
+      b.disabled = true;
+      b.classList.add("revealed");
+    });
 
     const correctChoice = state.questions[state.currentIndex].choices.find((c) => c.isCorrect);
 
@@ -282,52 +285,57 @@
     }
   }
 
-  // ---------- Leaderboard (localStorage) ----------
-  function loadLeaderboard() {
-    try {
-      const raw = localStorage.getItem(LEADERBOARD_KEY);
-      return raw ? JSON.parse(raw) : [];
-    } catch (e) {
-      return [];
-    }
-  }
-
-  function saveLeaderboard(list) {
-    localStorage.setItem(LEADERBOARD_KEY, JSON.stringify(list));
-  }
-
-  function saveResult(name, score) {
-    if (!name) return;
+  // ---------- Leaderboard (shared across devices via Firestore) ----------
+  function docIdForName(name) {
     const normalized = name.trim().toLowerCase();
-    const list = loadLeaderboard();
-    const existing = list.find((entry) => entry.normalized === normalized);
-
-    if (existing) {
-      if (score > existing.bestScore) {
-        existing.bestScore = score;
-        existing.displayName = name.trim();
-        existing.date = new Date().toISOString();
-        existing.lang = state.lang;
-        existing.level = state.level;
-        existing.category = state.category;
-      }
-    } else {
-      list.push({
-        normalized,
-        displayName: name.trim(),
-        bestScore: score,
-        date: new Date().toISOString(),
-        lang: state.lang,
-        level: state.level,
-        category: state.category,
-      });
-    }
-    saveLeaderboard(list);
+    const safe = normalized.replace(/[\/.\s#\[\]*~]+/g, "_").slice(0, 200);
+    return { normalized, docId: safe || "player" };
   }
 
-  function renderLeaderboard() {
-    const list = loadLeaderboard().sort((a, b) => b.bestScore - a.bestScore);
+  async function saveResult(name, score) {
+    if (!name) return;
+    const { normalized, docId } = docIdForName(name);
+    const ref = db.collection("leaderboard").doc(docId);
+
+    try {
+      await db.runTransaction(async (tx) => {
+        const snap = await tx.get(ref);
+        const existing = snap.exists ? snap.data() : null;
+        if (!existing || score > existing.bestScore) {
+          tx.set(ref, {
+            normalized,
+            displayName: name.trim(),
+            bestScore: score,
+            date: new Date().toISOString(),
+            lang: state.lang,
+            level: state.level,
+            category: state.category,
+          });
+        }
+      });
+    } catch (err) {
+      console.error("Failed to save leaderboard result:", err);
+    }
+  }
+
+  async function renderLeaderboard() {
     const container = document.getElementById("leaderboard-list");
+    container.innerHTML = `<p class="leaderboard-empty">Loading leaderboard…</p>`;
+
+    let list;
+    try {
+      const snapshot = await db
+        .collection("leaderboard")
+        .orderBy("bestScore", "desc")
+        .limit(50)
+        .get();
+      list = snapshot.docs.map((doc) => doc.data());
+    } catch (err) {
+      console.error("Failed to load leaderboard:", err);
+      container.innerHTML = `<p class="leaderboard-empty">Couldn't load the leaderboard. Check your internet connection and try again.</p>`;
+      return;
+    }
+
     container.innerHTML = "";
 
     if (list.length === 0) {

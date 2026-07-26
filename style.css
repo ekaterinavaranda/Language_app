@@ -241,6 +241,12 @@ h1 {
   margin: 0 0 4px;
 }
 
+.quiz-word-emoji {
+  font-size: 3rem;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
 .quiz-word {
   font-size: 2.4rem;
   margin: 0 0 28px;
@@ -276,6 +282,7 @@ h1 {
 .answer-btn .answer-emoji {
   font-size: 1.8rem;
   line-height: 1;
+  visibility: hidden;
 }
 
 .answer-btn .answer-swatch {
@@ -283,6 +290,12 @@ h1 {
   height: 34px;
   border-radius: 50%;
   border: 2px solid var(--border);
+  visibility: hidden;
+}
+
+.answer-btn.revealed .answer-emoji,
+.answer-btn.revealed .answer-swatch {
+  visibility: visible;
 }
 
 .answer-btn .answer-text {
