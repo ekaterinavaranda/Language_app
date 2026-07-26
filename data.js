@@ -69,6 +69,70 @@ const WORDS = {
         "ruPron": "Mysh",
         "ptPron": "Hato",
         "emoji": "🐭"
+      },
+      {
+        "en": "Elephant",
+        "ru": "слон",
+        "pt": "elefante",
+        "ruPron": "Slon",
+        "ptPron": "Elefante",
+        "emoji": "🐘"
+      },
+      {
+        "en": "Lion",
+        "ru": "лев",
+        "pt": "leão",
+        "ruPron": "Lev",
+        "ptPron": "Leowng",
+        "emoji": "🦁"
+      },
+      {
+        "en": "Tiger",
+        "ru": "тигр",
+        "pt": "tigre",
+        "ruPron": "Tigr",
+        "ptPron": "Tigre",
+        "emoji": "🐯"
+      },
+      {
+        "en": "Chicken",
+        "ru": "курица",
+        "pt": "galinha",
+        "ruPron": "Kuritsa",
+        "ptPron": "Galinya",
+        "emoji": "🐔"
+      },
+      {
+        "en": "Bee",
+        "ru": "пчела",
+        "pt": "abelha",
+        "ruPron": "Pchela",
+        "ptPron": "Abelya",
+        "emoji": "🐝"
+      },
+      {
+        "en": "Butterfly",
+        "ru": "бабочка",
+        "pt": "borboleta",
+        "ruPron": "Babochka",
+        "ptPron": "Borboleta",
+        "emoji": "🦋"
+      },
+      {
+        "en": "Spider",
+        "ru": "паук",
+        "pt": "aranha",
+        "ruPron": "Pauk",
+        "ptPron": "Aranya",
+        "emoji": "🕷️"
+      },
+      {
+        "en": "Camel",
+        "ru": "верблюд",
+        "pt": "camelo",
+        "ruPron": "Verblyud",
+        "ptPron": "Camelo",
+        "emoji": "🐫"
       }
     ],
     "medium": [
@@ -135,6 +199,70 @@ const WORDS = {
         "ruPron": "Obezyana",
         "ptPron": "Macaco",
         "emoji": "🐒"
+      },
+      {
+        "en": "Giraffe",
+        "ru": "жираф",
+        "pt": "girafa",
+        "ruPron": "Zhiraf",
+        "ptPron": "Zhirafa",
+        "emoji": "🦒"
+      },
+      {
+        "en": "Zebra",
+        "ru": "зебра",
+        "pt": "zebra",
+        "ruPron": "Zebra",
+        "ptPron": "Zebra",
+        "emoji": "🦓"
+      },
+      {
+        "en": "Kangaroo",
+        "ru": "кенгуру",
+        "pt": "canguru",
+        "ruPron": "Kenguru",
+        "ptPron": "Canguru",
+        "emoji": "🦘"
+      },
+      {
+        "en": "Penguin",
+        "ru": "пингвин",
+        "pt": "pinguim",
+        "ruPron": "Pingvin",
+        "ptPron": "Pinzhim",
+        "emoji": "🐧"
+      },
+      {
+        "en": "Dolphin",
+        "ru": "дельфин",
+        "pt": "golfinho",
+        "ruPron": "Delfin",
+        "ptPron": "Golfinyo",
+        "emoji": "🐬"
+      },
+      {
+        "en": "Shark",
+        "ru": "акула",
+        "pt": "tubarão",
+        "ruPron": "Akula",
+        "ptPron": "Tubarowng",
+        "emoji": "🦈"
+      },
+      {
+        "en": "Crocodile",
+        "ru": "крокодил",
+        "pt": "crocodilo",
+        "ruPron": "Krokodil",
+        "ptPron": "Crocodilo",
+        "emoji": "🐊"
+      },
+      {
+        "en": "Parrot",
+        "ru": "попугай",
+        "pt": "papagaio",
+        "ruPron": "Popugay",
+        "ptPron": "Papagaio",
+        "emoji": "🦜"
       }
     ],
     "hard": [
@@ -201,6 +329,70 @@ const WORDS = {
         "ruPron": "Letuchaya mysh",
         "ptPron": "Morcego",
         "emoji": "🦇"
+      },
+      {
+        "en": "Hippopotamus",
+        "ru": "бегемот",
+        "pt": "hipopótamo",
+        "ruPron": "Begemot",
+        "ptPron": "Hipopotamo",
+        "emoji": "🦛"
+      },
+      {
+        "en": "Rhinoceros",
+        "ru": "носорог",
+        "pt": "rinoceronte",
+        "ruPron": "Nosorog",
+        "ptPron": "Hinoceronte",
+        "emoji": "🦏"
+      },
+      {
+        "en": "Leopard",
+        "ru": "леопард",
+        "pt": "leopardo",
+        "ruPron": "Leopard",
+        "ptPron": "Leopardo",
+        "emoji": "🐆"
+      },
+      {
+        "en": "Cheetah",
+        "ru": "гепард",
+        "pt": "guepardo",
+        "ruPron": "Gepard",
+        "ptPron": "Zhepardo",
+        "emoji": "🐆"
+      },
+      {
+        "en": "Raccoon",
+        "ru": "енот",
+        "pt": "guaxinim",
+        "ruPron": "Yenot",
+        "ptPron": "Guashinim",
+        "emoji": "🦝"
+      },
+      {
+        "en": "Beaver",
+        "ru": "бобр",
+        "pt": "castor",
+        "ruPron": "Bobr",
+        "ptPron": "Castor",
+        "emoji": "🦫"
+      },
+      {
+        "en": "Peacock",
+        "ru": "павлин",
+        "pt": "pavão",
+        "ruPron": "Pavlin",
+        "ptPron": "Pavowng",
+        "emoji": "🦚"
+      },
+      {
+        "en": "Flamingo",
+        "ru": "фламинго",
+        "pt": "flamingo",
+        "ruPron": "Flamingo",
+        "ptPron": "Flamingo",
+        "emoji": "🦩"
       }
     ],
     "insane": [
@@ -267,6 +459,70 @@ const WORDS = {
         "ruPron": "Kaban",
         "ptPron": "Zhavali",
         "emoji": "🐗"
+      },
+      {
+        "en": "Chameleon",
+        "ru": "хамелеон",
+        "pt": "camaleão",
+        "ruPron": "Khameleon",
+        "ptPron": "Camaleowng",
+        "emoji": "🦎"
+      },
+      {
+        "en": "Porcupine",
+        "ru": "дикобраз",
+        "pt": "porco-espinho",
+        "ruPron": "Dikobraz",
+        "ptPron": "Porco-espinyo",
+        "emoji": "🦔"
+      },
+      {
+        "en": "Armadillo",
+        "ru": "броненосец",
+        "pt": "tatu",
+        "ruPron": "Bronenosets",
+        "ptPron": "Tatu",
+        "emoji": "🦔"
+      },
+      {
+        "en": "Mongoose",
+        "ru": "мангуст",
+        "pt": "mangusto",
+        "ruPron": "Mangust",
+        "ptPron": "Mangusto",
+        "emoji": "🐾"
+      },
+      {
+        "en": "Ferret",
+        "ru": "хорёк",
+        "pt": "furão",
+        "ruPron": "Khoryok",
+        "ptPron": "Furowng",
+        "emoji": "🦡"
+      },
+      {
+        "en": "Antelope",
+        "ru": "антилопа",
+        "pt": "antílope",
+        "ruPron": "Antilopa",
+        "ptPron": "Antilope",
+        "emoji": "🦌"
+      },
+      {
+        "en": "Walrus",
+        "ru": "морж",
+        "pt": "morsa",
+        "ruPron": "Morzh",
+        "ptPron": "Morsa",
+        "emoji": "🦭"
+      },
+      {
+        "en": "Koala",
+        "ru": "коала",
+        "pt": "coala",
+        "ruPron": "Koala",
+        "ptPron": "Coala",
+        "emoji": "🐨"
       }
     ]
   },
@@ -335,6 +591,70 @@ const WORDS = {
         "ruPron": "Klyuch",
         "ptPron": "Shave",
         "emoji": "🔑"
+      },
+      {
+        "en": "Cup",
+        "ru": "чашка",
+        "pt": "xícara",
+        "ruPron": "Chashka",
+        "ptPron": "Shicara",
+        "emoji": "☕"
+      },
+      {
+        "en": "Plate",
+        "ru": "тарелка",
+        "pt": "prato",
+        "ruPron": "Tarelka",
+        "ptPron": "Prato",
+        "emoji": "🍽️"
+      },
+      {
+        "en": "Spoon",
+        "ru": "ложка",
+        "pt": "colher",
+        "ruPron": "Lozhka",
+        "ptPron": "Colyer",
+        "emoji": "🥄"
+      },
+      {
+        "en": "Fork",
+        "ru": "вилка",
+        "pt": "garfo",
+        "ruPron": "Vilka",
+        "ptPron": "Garfo",
+        "emoji": "🍴"
+      },
+      {
+        "en": "Knife",
+        "ru": "нож",
+        "pt": "faca",
+        "ruPron": "Nozh",
+        "ptPron": "Faca",
+        "emoji": "🔪"
+      },
+      {
+        "en": "Towel",
+        "ru": "полотенце",
+        "pt": "toalha",
+        "ruPron": "Polotentse",
+        "ptPron": "Toalya",
+        "emoji": "🧻"
+      },
+      {
+        "en": "Backpack",
+        "ru": "рюкзак",
+        "pt": "mochila",
+        "ruPron": "Ryukzak",
+        "ptPron": "Moshila",
+        "emoji": "🎒"
+      },
+      {
+        "en": "Glasses",
+        "ru": "очки",
+        "pt": "óculos",
+        "ruPron": "Ochki",
+        "ptPron": "Oculos",
+        "emoji": "👓"
       }
     ],
     "medium": [
@@ -401,6 +721,70 @@ const WORDS = {
         "ruPron": "Zont",
         "ptPron": "Guarda-shuva",
         "emoji": "☂️"
+      },
+      {
+        "en": "Watch",
+        "ru": "наручные часы",
+        "pt": "relógio de pulso",
+        "ruPron": "Naruchnyye chasy",
+        "ptPron": "Helozhio de pulso",
+        "emoji": "⌚"
+      },
+      {
+        "en": "Camera",
+        "ru": "фотоаппарат",
+        "pt": "câmera",
+        "ruPron": "Fotoapparat",
+        "ptPron": "Camera",
+        "emoji": "📷"
+      },
+      {
+        "en": "Suitcase",
+        "ru": "чемодан",
+        "pt": "mala",
+        "ruPron": "Chemodan",
+        "ptPron": "Mala",
+        "emoji": "🧳"
+      },
+      {
+        "en": "Notebook",
+        "ru": "тетрадь",
+        "pt": "caderno",
+        "ruPron": "Tetrad",
+        "ptPron": "Caderno",
+        "emoji": "📓"
+      },
+      {
+        "en": "Calendar",
+        "ru": "календарь",
+        "pt": "calendário",
+        "ruPron": "Kalendar",
+        "ptPron": "Calendario",
+        "emoji": "📅"
+      },
+      {
+        "en": "Battery",
+        "ru": "батарейка",
+        "pt": "pilha",
+        "ruPron": "Batareyka",
+        "ptPron": "Pilya",
+        "emoji": "🔋"
+      },
+      {
+        "en": "Charger",
+        "ru": "зарядное устройство",
+        "pt": "carregador",
+        "ruPron": "Zaryadnoye ustroystvo",
+        "ptPron": "Cahegador",
+        "emoji": "🔌"
+      },
+      {
+        "en": "Remote control",
+        "ru": "пульт",
+        "pt": "controle remoto",
+        "ruPron": "Pult",
+        "ptPron": "Controle remoto",
+        "emoji": "📺"
       }
     ],
     "hard": [
@@ -467,6 +851,70 @@ const WORDS = {
         "ruPron": "Molotok",
         "ptPron": "Martelo",
         "emoji": "🔨"
+      },
+      {
+        "en": "Bucket",
+        "ru": "ведро",
+        "pt": "balde",
+        "ruPron": "Vedro",
+        "ptPron": "Balde",
+        "emoji": "🪣"
+      },
+      {
+        "en": "Broom",
+        "ru": "метла",
+        "pt": "vassoura",
+        "ruPron": "Metla",
+        "ptPron": "Vassoura",
+        "emoji": "🧹"
+      },
+      {
+        "en": "Mop",
+        "ru": "швабра",
+        "pt": "esfregão",
+        "ruPron": "Shvabra",
+        "ptPron": "Esfregowng",
+        "emoji": "🧽"
+      },
+      {
+        "en": "Vase",
+        "ru": "ваза",
+        "pt": "vaso",
+        "ruPron": "Vaza",
+        "ptPron": "Vaso",
+        "emoji": "🏺"
+      },
+      {
+        "en": "Frame",
+        "ru": "рамка",
+        "pt": "moldura",
+        "ruPron": "Ramka",
+        "ptPron": "Moldura",
+        "emoji": "🖼️"
+      },
+      {
+        "en": "Bolt",
+        "ru": "болт",
+        "pt": "parafuso",
+        "ruPron": "Bolt",
+        "ptPron": "Parafuso",
+        "emoji": "🔩"
+      },
+      {
+        "en": "Nail",
+        "ru": "гвоздь",
+        "pt": "prego",
+        "ruPron": "Gvozd",
+        "ptPron": "Prego",
+        "emoji": "📌"
+      },
+      {
+        "en": "Rope",
+        "ru": "верёвка",
+        "pt": "corda",
+        "ruPron": "Veryovka",
+        "ptPron": "Corda",
+        "emoji": "🪢"
       }
     ],
     "insane": [
@@ -533,6 +981,70 @@ const WORDS = {
         "ruPron": "Zamok",
         "ptPron": "Cadeado",
         "emoji": "🔒"
+      },
+      {
+        "en": "Chisel",
+        "ru": "долото",
+        "pt": "formão",
+        "ruPron": "Doloto",
+        "ptPron": "Formowng",
+        "emoji": "🔨"
+      },
+      {
+        "en": "Wrench",
+        "ru": "гаечный ключ",
+        "pt": "chave inglesa",
+        "ruPron": "Gayechnyy klyuch",
+        "ptPron": "Shave inglesa",
+        "emoji": "🔧"
+      },
+      {
+        "en": "Screwdriver",
+        "ru": "отвёртка",
+        "pt": "chave de fenda",
+        "ruPron": "Otvyortka",
+        "ptPron": "Shave de fenda",
+        "emoji": "🪛"
+      },
+      {
+        "en": "Trowel",
+        "ru": "мастерок",
+        "pt": "colher de pedreiro",
+        "ruPron": "Masterok",
+        "ptPron": "Colyer de pedreiro",
+        "emoji": "🛠️"
+      },
+      {
+        "en": "Ladle",
+        "ru": "половник",
+        "pt": "concha",
+        "ruPron": "Polovnik",
+        "ptPron": "Consha",
+        "emoji": "🥄"
+      },
+      {
+        "en": "Pestle",
+        "ru": "пестик",
+        "pt": "pilão",
+        "ruPron": "Pestik",
+        "ptPron": "Pilowng",
+        "emoji": "⚗️"
+      },
+      {
+        "en": "Awl",
+        "ru": "шило",
+        "pt": "sovela",
+        "ruPron": "Shilo",
+        "ptPron": "Sovela",
+        "emoji": "📍"
+      },
+      {
+        "en": "Funnel",
+        "ru": "воронка",
+        "pt": "funil",
+        "ruPron": "Voronka",
+        "ptPron": "Funil",
+        "emoji": "🔻"
       }
     ]
   },
@@ -601,6 +1113,70 @@ const WORDS = {
         "ruPron": "Voda",
         "ptPron": "Agua",
         "emoji": "💧"
+      },
+      {
+        "en": "Name",
+        "ru": "имя",
+        "pt": "nome",
+        "ruPron": "Imya",
+        "ptPron": "Nome",
+        "emoji": "🏷️"
+      },
+      {
+        "en": "Day",
+        "ru": "день",
+        "pt": "dia",
+        "ruPron": "Den",
+        "ptPron": "Dia",
+        "emoji": "☀️"
+      },
+      {
+        "en": "Night",
+        "ru": "ночь",
+        "pt": "noite",
+        "ruPron": "Noch",
+        "ptPron": "Noite",
+        "emoji": "🌙"
+      },
+      {
+        "en": "Hand",
+        "ru": "рука",
+        "pt": "mão",
+        "ruPron": "Ruka",
+        "ptPron": "Mowng",
+        "emoji": "✋"
+      },
+      {
+        "en": "Eye",
+        "ru": "глаз",
+        "pt": "olho",
+        "ruPron": "Glaz",
+        "ptPron": "Olyo",
+        "emoji": "👁️"
+      },
+      {
+        "en": "Head",
+        "ru": "голова",
+        "pt": "cabeça",
+        "ruPron": "Golova",
+        "ptPron": "Cabesa",
+        "emoji": "🗣️"
+      },
+      {
+        "en": "Room",
+        "ru": "комната",
+        "pt": "quarto",
+        "ruPron": "Komnata",
+        "ptPron": "Quarto",
+        "emoji": "🚪"
+      },
+      {
+        "en": "Tree",
+        "ru": "дерево",
+        "pt": "árvore",
+        "ruPron": "Derevo",
+        "ptPron": "Arvore",
+        "emoji": "🌳"
       }
     ],
     "medium": [
@@ -667,6 +1243,70 @@ const WORDS = {
         "ruPron": "Ideya",
         "ptPron": "Ideia",
         "emoji": "💡"
+      },
+      {
+        "en": "Question",
+        "ru": "вопрос",
+        "pt": "pergunta",
+        "ruPron": "Vopros",
+        "ptPron": "Pergunta",
+        "emoji": "❓"
+      },
+      {
+        "en": "Answer",
+        "ru": "ответ",
+        "pt": "resposta",
+        "ruPron": "Otvet",
+        "ptPron": "Hesposta",
+        "emoji": "💡"
+      },
+      {
+        "en": "Problem",
+        "ru": "проблема",
+        "pt": "problema",
+        "ruPron": "Problema",
+        "ptPron": "Problema",
+        "emoji": "⚠️"
+      },
+      {
+        "en": "Reason",
+        "ru": "причина",
+        "pt": "razão",
+        "ruPron": "Prichina",
+        "ptPron": "Hazowng",
+        "emoji": "🧠"
+      },
+      {
+        "en": "Party",
+        "ru": "вечеринка",
+        "pt": "festa",
+        "ruPron": "Vecherinka",
+        "ptPron": "Festa",
+        "emoji": "🎉"
+      },
+      {
+        "en": "Trip",
+        "ru": "поездка",
+        "pt": "viagem",
+        "ruPron": "Poyezdka",
+        "ptPron": "Viazhem",
+        "emoji": "🧳"
+      },
+      {
+        "en": "News",
+        "ru": "новости",
+        "pt": "notícias",
+        "ruPron": "Novosti",
+        "ptPron": "Noticias",
+        "emoji": "📰"
+      },
+      {
+        "en": "Voice",
+        "ru": "голос",
+        "pt": "voz",
+        "ruPron": "Golos",
+        "ptPron": "Voz",
+        "emoji": "🗣️"
       }
     ],
     "hard": [
@@ -733,6 +1373,70 @@ const WORDS = {
         "ruPron": "Somneniye",
         "ptPron": "Duvida",
         "emoji": "❓"
+      },
+      {
+        "en": "Opportunity",
+        "ru": "возможность",
+        "pt": "oportunidade",
+        "ruPron": "Vozmozhnost",
+        "ptPron": "Oportunidade",
+        "emoji": "🚪"
+      },
+      {
+        "en": "Responsibility",
+        "ru": "ответственность",
+        "pt": "responsabilidade",
+        "ruPron": "Otvetstvennost",
+        "ptPron": "Hesponsabilidade",
+        "emoji": "📋"
+      },
+      {
+        "en": "Achievement",
+        "ru": "достижение",
+        "pt": "conquista",
+        "ruPron": "Dostizheniye",
+        "ptPron": "Conkista",
+        "emoji": "🏆"
+      },
+      {
+        "en": "Behavior",
+        "ru": "поведение",
+        "pt": "comportamento",
+        "ruPron": "Povedeniye",
+        "ptPron": "Comportamento",
+        "emoji": "🎭"
+      },
+      {
+        "en": "Purpose",
+        "ru": "цель",
+        "pt": "propósito",
+        "ruPron": "Tsel",
+        "ptPron": "Proposito",
+        "emoji": "🎯"
+      },
+      {
+        "en": "Confidence",
+        "ru": "уверенность",
+        "pt": "confiança",
+        "ruPron": "Uverennost",
+        "ptPron": "Confiansa",
+        "emoji": "💪"
+      },
+      {
+        "en": "Patience",
+        "ru": "терпение",
+        "pt": "paciência",
+        "ruPron": "Terpeniye",
+        "ptPron": "Paciencia",
+        "emoji": "⏳"
+      },
+      {
+        "en": "Curiosity",
+        "ru": "любопытство",
+        "pt": "curiosidade",
+        "ruPron": "Lyubopytstvo",
+        "ptPron": "Curiosidade",
+        "emoji": "🔍"
       }
     ],
     "insane": [
@@ -799,6 +1503,70 @@ const WORDS = {
         "ruPron": "Iskupleniye",
         "ptPron": "Hedensowng",
         "emoji": "🌅"
+      },
+      {
+        "en": "Hypocrisy",
+        "ru": "лицемерие",
+        "pt": "hipocrisia",
+        "ruPron": "Litsemeriye",
+        "ptPron": "Hipocrisia",
+        "emoji": "🎭"
+      },
+      {
+        "en": "Integrity",
+        "ru": "честность",
+        "pt": "integridade",
+        "ruPron": "Chestnost",
+        "ptPron": "Integridade",
+        "emoji": "✅"
+      },
+      {
+        "en": "Vulnerability",
+        "ru": "уязвимость",
+        "pt": "vulnerabilidade",
+        "ruPron": "Uyazvimost",
+        "ptPron": "Vulnerabilidade",
+        "emoji": "🥚"
+      },
+      {
+        "en": "Empathy",
+        "ru": "эмпатия",
+        "pt": "empatia",
+        "ruPron": "Empatiya",
+        "ptPron": "Empatia",
+        "emoji": "❤️"
+      },
+      {
+        "en": "Resentment",
+        "ru": "обида",
+        "pt": "ressentimento",
+        "ruPron": "Obida",
+        "ptPron": "Hessentimento",
+        "emoji": "😒"
+      },
+      {
+        "en": "Serenity",
+        "ru": "безмятежность",
+        "pt": "serenidade",
+        "ruPron": "Bezmyatezhnost",
+        "ptPron": "Serenidade",
+        "emoji": "🕊️"
+      },
+      {
+        "en": "Skepticism",
+        "ru": "скептицизм",
+        "pt": "ceticismo",
+        "ruPron": "Skeptitsizm",
+        "ptPron": "Ceticismo",
+        "emoji": "🤨"
+      },
+      {
+        "en": "Indifference",
+        "ru": "безразличие",
+        "pt": "indiferença",
+        "ruPron": "Bezrazlichiye",
+        "ptPron": "Indiferensa",
+        "emoji": "🤷"
       }
     ]
   },
@@ -867,6 +1635,70 @@ const WORDS = {
         "ruPron": "Staryy",
         "ptPron": "Velyo",
         "emoji": "🕰️"
+      },
+      {
+        "en": "Tall",
+        "ru": "высокий",
+        "pt": "alto",
+        "ruPron": "Vysokiy",
+        "ptPron": "Alto",
+        "emoji": "📏"
+      },
+      {
+        "en": "Short",
+        "ru": "низкий",
+        "pt": "baixo",
+        "ruPron": "Nizkiy",
+        "ptPron": "Baisho",
+        "emoji": "📉"
+      },
+      {
+        "en": "Long",
+        "ru": "длинный",
+        "pt": "longo",
+        "ruPron": "Dlinnyy",
+        "ptPron": "Longo",
+        "emoji": "➖"
+      },
+      {
+        "en": "Beautiful",
+        "ru": "красивый",
+        "pt": "bonito",
+        "ruPron": "Krasivyy",
+        "ptPron": "Bonito",
+        "emoji": "🌸"
+      },
+      {
+        "en": "Ugly",
+        "ru": "некрасивый",
+        "pt": "feio",
+        "ruPron": "Nekrasivyy",
+        "ptPron": "Feio",
+        "emoji": "🙁"
+      },
+      {
+        "en": "Easy",
+        "ru": "лёгкий",
+        "pt": "fácil",
+        "ruPron": "Lyogkiy",
+        "ptPron": "Facil",
+        "emoji": "✅"
+      },
+      {
+        "en": "Difficult",
+        "ru": "трудный",
+        "pt": "difícil",
+        "ruPron": "Trudnyy",
+        "ptPron": "Dificil",
+        "emoji": "🧗"
+      },
+      {
+        "en": "Full",
+        "ru": "полный",
+        "pt": "cheio",
+        "ruPron": "Polnyy",
+        "ptPron": "Sheio",
+        "emoji": "🈵"
       }
     ],
     "medium": [
@@ -933,6 +1765,70 @@ const WORDS = {
         "ruPron": "Gryaznyy",
         "ptPron": "Suzho",
         "emoji": "🟫"
+      },
+      {
+        "en": "Rich",
+        "ru": "богатый",
+        "pt": "rico",
+        "ruPron": "Bogatyy",
+        "ptPron": "Hico",
+        "emoji": "💰"
+      },
+      {
+        "en": "Poor",
+        "ru": "бедный",
+        "pt": "pobre",
+        "ruPron": "Bednyy",
+        "ptPron": "Pobre",
+        "emoji": "🪙"
+      },
+      {
+        "en": "Young",
+        "ru": "молодой",
+        "pt": "jovem",
+        "ruPron": "Molodoy",
+        "ptPron": "Zhovem",
+        "emoji": "👶"
+      },
+      {
+        "en": "Heavy",
+        "ru": "тяжёлый",
+        "pt": "pesado",
+        "ruPron": "Tyazhyolyy",
+        "ptPron": "Pesado",
+        "emoji": "🏋️"
+      },
+      {
+        "en": "Light",
+        "ru": "лёгкий",
+        "pt": "leve",
+        "ruPron": "Lyogkiy",
+        "ptPron": "Leve",
+        "emoji": "🪶"
+      },
+      {
+        "en": "Loud",
+        "ru": "громкий",
+        "pt": "alto",
+        "ruPron": "Gromkiy",
+        "ptPron": "Alto",
+        "emoji": "🔊"
+      },
+      {
+        "en": "Quiet",
+        "ru": "тихий",
+        "pt": "quieto",
+        "ruPron": "Tikhiy",
+        "ptPron": "Kieto",
+        "emoji": "🤫"
+      },
+      {
+        "en": "Interesting",
+        "ru": "интересный",
+        "pt": "interessante",
+        "ruPron": "Interesnyy",
+        "ptPron": "Interessante",
+        "emoji": "✨"
       }
     ],
     "hard": [
@@ -999,6 +1895,70 @@ const WORDS = {
         "ruPron": "Lenivyy",
         "ptPron": "Prezhisoso",
         "emoji": "🦥"
+      },
+      {
+        "en": "Reliable",
+        "ru": "надёжный",
+        "pt": "confiável",
+        "ruPron": "Nadyozhnyy",
+        "ptPron": "Confiavel",
+        "emoji": "🤝"
+      },
+      {
+        "en": "Honest",
+        "ru": "честный",
+        "pt": "honesto",
+        "ruPron": "Chestnyy",
+        "ptPron": "Honesto",
+        "emoji": "✅"
+      },
+      {
+        "en": "Polite",
+        "ru": "вежливый",
+        "pt": "educado",
+        "ruPron": "Vezhlivyy",
+        "ptPron": "Educado",
+        "emoji": "🙏"
+      },
+      {
+        "en": "Rude",
+        "ru": "грубый",
+        "pt": "rude",
+        "ruPron": "Grubyy",
+        "ptPron": "Hude",
+        "emoji": "😠"
+      },
+      {
+        "en": "Talented",
+        "ru": "талантливый",
+        "pt": "talentoso",
+        "ruPron": "Talantlivyy",
+        "ptPron": "Talentoso",
+        "emoji": "🌟"
+      },
+      {
+        "en": "Confident",
+        "ru": "уверенный",
+        "pt": "confiante",
+        "ruPron": "Uverennyy",
+        "ptPron": "Confiante",
+        "emoji": "💪"
+      },
+      {
+        "en": "Nervous",
+        "ru": "нервный",
+        "pt": "nervoso",
+        "ruPron": "Nervnyy",
+        "ptPron": "Nervoso",
+        "emoji": "😬"
+      },
+      {
+        "en": "Cheerful",
+        "ru": "весёлый",
+        "pt": "alegre",
+        "ruPron": "Vesyolyy",
+        "ptPron": "Alegre",
+        "emoji": "😄"
       }
     ],
     "insane": [
@@ -1065,6 +2025,70 @@ const WORDS = {
         "ruPron": "Melankholichnyy",
         "ptPron": "Melancolico",
         "emoji": "🌧️"
+      },
+      {
+        "en": "Enigmatic",
+        "ru": "загадочный",
+        "pt": "enigmático",
+        "ruPron": "Zagadochnyy",
+        "ptPron": "Enigmatico",
+        "emoji": "🌫️"
+      },
+      {
+        "en": "Audacious",
+        "ru": "дерзкий",
+        "pt": "audacioso",
+        "ruPron": "Derzkiy",
+        "ptPron": "Audacioso",
+        "emoji": "😎"
+      },
+      {
+        "en": "Insidious",
+        "ru": "коварный",
+        "pt": "insidioso",
+        "ruPron": "Kovarnyy",
+        "ptPron": "Insidioso",
+        "emoji": "🐍"
+      },
+      {
+        "en": "Vindictive",
+        "ru": "мстительный",
+        "pt": "vingativo",
+        "ruPron": "Mstitelnyy",
+        "ptPron": "Vingativo",
+        "emoji": "😈"
+      },
+      {
+        "en": "Frivolous",
+        "ru": "легкомысленный",
+        "pt": "frívolo",
+        "ruPron": "Legkomyslennyy",
+        "ptPron": "Frivolo",
+        "emoji": "🎈"
+      },
+      {
+        "en": "Tenacious",
+        "ru": "упорный",
+        "pt": "tenaz",
+        "ruPron": "Upornyy",
+        "ptPron": "Tenaz",
+        "emoji": "🐾"
+      },
+      {
+        "en": "Nonchalant",
+        "ru": "беспечный",
+        "pt": "despreocupado",
+        "ruPron": "Bespechnyy",
+        "ptPron": "Despreocupado",
+        "emoji": "😌"
+      },
+      {
+        "en": "Gregarious",
+        "ru": "общительный",
+        "pt": "gregário",
+        "ruPron": "Obshchitelnyy",
+        "ptPron": "Gregario",
+        "emoji": "🎉"
       }
     ]
   },
@@ -1133,6 +2157,70 @@ const WORDS = {
         "ruPron": "Govorit",
         "ptPron": "Falar",
         "emoji": "🗣️"
+      },
+      {
+        "en": "To run",
+        "ru": "бегать",
+        "pt": "correr",
+        "ruPron": "Begat",
+        "ptPron": "Coher",
+        "emoji": "🏃"
+      },
+      {
+        "en": "To walk",
+        "ru": "гулять",
+        "pt": "caminhar",
+        "ruPron": "Gulyat",
+        "ptPron": "Caminyar",
+        "emoji": "🚶"
+      },
+      {
+        "en": "To swim",
+        "ru": "плавать",
+        "pt": "nadar",
+        "ruPron": "Plavat",
+        "ptPron": "Nadar",
+        "emoji": "🏊"
+      },
+      {
+        "en": "To play",
+        "ru": "играть",
+        "pt": "jogar",
+        "ruPron": "Igrat",
+        "ptPron": "Zhogar",
+        "emoji": "🎮"
+      },
+      {
+        "en": "To sing",
+        "ru": "петь",
+        "pt": "cantar",
+        "ruPron": "Pet",
+        "ptPron": "Cantar",
+        "emoji": "🎤"
+      },
+      {
+        "en": "To dance",
+        "ru": "танцевать",
+        "pt": "dançar",
+        "ruPron": "Tantsevat",
+        "ptPron": "Dansar",
+        "emoji": "💃"
+      },
+      {
+        "en": "To cook",
+        "ru": "готовить",
+        "pt": "cozinhar",
+        "ruPron": "Gotovit",
+        "ptPron": "Cozinyar",
+        "emoji": "🍳"
+      },
+      {
+        "en": "To help",
+        "ru": "помогать",
+        "pt": "ajudar",
+        "ruPron": "Pomogat",
+        "ptPron": "Azhudar",
+        "emoji": "🤝"
       }
     ],
     "medium": [
@@ -1199,6 +2287,70 @@ const WORDS = {
         "ruPron": "Zhdat",
         "ptPron": "Esperar",
         "emoji": "⏳"
+      },
+      {
+        "en": "To learn",
+        "ru": "учиться",
+        "pt": "aprender",
+        "ruPron": "Uchitsya",
+        "ptPron": "Aprender",
+        "emoji": "📚"
+      },
+      {
+        "en": "To teach",
+        "ru": "учить",
+        "pt": "ensinar",
+        "ruPron": "Uchit",
+        "ptPron": "Ensinar",
+        "emoji": "🍎"
+      },
+      {
+        "en": "To travel",
+        "ru": "путешествовать",
+        "pt": "viajar",
+        "ruPron": "Puteshestvovat",
+        "ptPron": "Viazhar",
+        "emoji": "✈️"
+      },
+      {
+        "en": "To arrive",
+        "ru": "прибывать",
+        "pt": "chegar",
+        "ruPron": "Pribyvat",
+        "ptPron": "Shegar",
+        "emoji": "🛬"
+      },
+      {
+        "en": "To leave",
+        "ru": "уходить",
+        "pt": "partir",
+        "ruPron": "Ukhodit",
+        "ptPron": "Partir",
+        "emoji": "🚪"
+      },
+      {
+        "en": "To find",
+        "ru": "находить",
+        "pt": "encontrar",
+        "ruPron": "Nakhodit",
+        "ptPron": "Encontrar",
+        "emoji": "🔍"
+      },
+      {
+        "en": "To lose",
+        "ru": "терять",
+        "pt": "perder",
+        "ruPron": "Teryat",
+        "ptPron": "Perder",
+        "emoji": "❌"
+      },
+      {
+        "en": "To choose",
+        "ru": "выбирать",
+        "pt": "escolher",
+        "ruPron": "Vybirat",
+        "ptPron": "Escolyer",
+        "emoji": "👉"
       }
     ],
     "hard": [
@@ -1265,6 +2417,70 @@ const WORDS = {
         "ruPron": "Preduprezhdat",
         "ptPron": "Avisar",
         "emoji": "⚠️"
+      },
+      {
+        "en": "To succeed",
+        "ru": "преуспевать",
+        "pt": "ter sucesso",
+        "ruPron": "Preuspevat",
+        "ptPron": "Ter sucesso",
+        "emoji": "🏆"
+      },
+      {
+        "en": "To fail",
+        "ru": "терпеть неудачу",
+        "pt": "falhar",
+        "ruPron": "Terpet neudachu",
+        "ptPron": "Falyar",
+        "emoji": "❌"
+      },
+      {
+        "en": "To hesitate",
+        "ru": "колебаться",
+        "pt": "hesitar",
+        "ruPron": "Kolebatsya",
+        "ptPron": "Hesitar",
+        "emoji": "🤔"
+      },
+      {
+        "en": "To manage",
+        "ru": "справляться",
+        "pt": "gerenciar",
+        "ruPron": "Spravlyatsya",
+        "ptPron": "Zherenciar",
+        "emoji": "🗂️"
+      },
+      {
+        "en": "To suggest",
+        "ru": "предлагать",
+        "pt": "sugerir",
+        "ruPron": "Predlagat",
+        "ptPron": "Suzherir",
+        "emoji": "💡"
+      },
+      {
+        "en": "To struggle",
+        "ru": "бороться",
+        "pt": "lutar",
+        "ruPron": "Borotsya",
+        "ptPron": "Lutar",
+        "emoji": "😣"
+      },
+      {
+        "en": "To admit",
+        "ru": "признавать",
+        "pt": "admitir",
+        "ruPron": "Priznavat",
+        "ptPron": "Admitir",
+        "emoji": "🙋"
+      },
+      {
+        "en": "To deny",
+        "ru": "отрицать",
+        "pt": "negar",
+        "ruPron": "Otritsat",
+        "ptPron": "Negar",
+        "emoji": "🙅"
       }
     ],
     "insane": [
@@ -1331,6 +2547,70 @@ const WORDS = {
         "ruPron": "Prepyatstvovat",
         "ptPron": "Impedir",
         "emoji": "🚧"
+      },
+      {
+        "en": "To exacerbate",
+        "ru": "усугублять",
+        "pt": "exacerbar",
+        "ruPron": "Usugublyat",
+        "ptPron": "Eshacerbar",
+        "emoji": "📈"
+      },
+      {
+        "en": "To alienate",
+        "ru": "отчуждать",
+        "pt": "alienar",
+        "ruPron": "Otchuzhdat",
+        "ptPron": "Alienar",
+        "emoji": "🚷"
+      },
+      {
+        "en": "To circumvent",
+        "ru": "обходить",
+        "pt": "contornar",
+        "ruPron": "Obkhodit",
+        "ptPron": "Contornar",
+        "emoji": "🔄"
+      },
+      {
+        "en": "To substantiate",
+        "ru": "обосновывать",
+        "pt": "fundamentar",
+        "ruPron": "Obosnovyvat",
+        "ptPron": "Fundamentar",
+        "emoji": "📄"
+      },
+      {
+        "en": "To ostracize",
+        "ru": "подвергать остракизму",
+        "pt": "marginalizar",
+        "ruPron": "Podvergat ostrakizmu",
+        "ptPron": "Marzhinalizar",
+        "emoji": "🚫"
+      },
+      {
+        "en": "To vindicate",
+        "ru": "оправдывать",
+        "pt": "justificar",
+        "ruPron": "Opravdyvat",
+        "ptPron": "Zhustificar",
+        "emoji": "⚖️"
+      },
+      {
+        "en": "To acquiesce",
+        "ru": "соглашаться",
+        "pt": "aquiescer",
+        "ruPron": "Soglashatsya",
+        "ptPron": "Akiescer",
+        "emoji": "🤝"
+      },
+      {
+        "en": "To dissipate",
+        "ru": "рассеивать",
+        "pt": "dissipar",
+        "ruPron": "Rasseivat",
+        "ptPron": "Dissipar",
+        "emoji": "💨"
       }
     ]
   },
@@ -1399,6 +2679,70 @@ const WORDS = {
         "ruPron": "Nikogda",
         "ptPron": "Nunca",
         "emoji": "🚫"
+      },
+      {
+        "en": "Well",
+        "ru": "хорошо",
+        "pt": "bem",
+        "ruPron": "Khorosho",
+        "ptPron": "Bem",
+        "emoji": "👍"
+      },
+      {
+        "en": "Badly",
+        "ru": "плохо",
+        "pt": "mal",
+        "ruPron": "Plokho",
+        "ptPron": "Mal",
+        "emoji": "👎"
+      },
+      {
+        "en": "Very",
+        "ru": "очень",
+        "pt": "muito",
+        "ruPron": "Ochen",
+        "ptPron": "Muito",
+        "emoji": "❗"
+      },
+      {
+        "en": "Too",
+        "ru": "слишком",
+        "pt": "demais",
+        "ruPron": "Slishkom",
+        "ptPron": "Demais",
+        "emoji": "⚠️"
+      },
+      {
+        "en": "Also",
+        "ru": "тоже",
+        "pt": "também",
+        "ruPron": "Tozhe",
+        "ptPron": "Tambem",
+        "emoji": "➕"
+      },
+      {
+        "en": "Only",
+        "ru": "только",
+        "pt": "apenas",
+        "ruPron": "Tolko",
+        "ptPron": "Apenas",
+        "emoji": "☝️"
+      },
+      {
+        "en": "Outside",
+        "ru": "снаружи",
+        "pt": "fora",
+        "ruPron": "Snaruzhi",
+        "ptPron": "Fora",
+        "emoji": "🌳"
+      },
+      {
+        "en": "Inside",
+        "ru": "внутри",
+        "pt": "dentro",
+        "ruPron": "Vnutri",
+        "ptPron": "Dentro",
+        "emoji": "🏠"
       }
     ],
     "medium": [
@@ -1465,6 +2809,70 @@ const WORDS = {
         "ruPron": "Vmeste",
         "ptPron": "Zhuntos",
         "emoji": "🤝"
+      },
+      {
+        "en": "Upstairs",
+        "ru": "наверху",
+        "pt": "em cima",
+        "ruPron": "Naverkhu",
+        "ptPron": "Em cima",
+        "emoji": "⬆️"
+      },
+      {
+        "en": "Downstairs",
+        "ru": "внизу",
+        "pt": "embaixo",
+        "ruPron": "Vnizu",
+        "ptPron": "Embaisho",
+        "emoji": "⬇️"
+      },
+      {
+        "en": "Everywhere",
+        "ru": "везде",
+        "pt": "em todo lugar",
+        "ruPron": "Vezde",
+        "ptPron": "Em todo lugar",
+        "emoji": "🌍"
+      },
+      {
+        "en": "Nowhere",
+        "ru": "нигде",
+        "pt": "lugar nenhum",
+        "ruPron": "Nigde",
+        "ptPron": "Lugar nenyum",
+        "emoji": "🚫"
+      },
+      {
+        "en": "Somewhere",
+        "ru": "где-то",
+        "pt": "algum lugar",
+        "ruPron": "Gde-to",
+        "ptPron": "Algum lugar",
+        "emoji": "📍"
+      },
+      {
+        "en": "Anyway",
+        "ru": "в любом случае",
+        "pt": "de qualquer forma",
+        "ruPron": "V lyubom sluchaye",
+        "ptPron": "De qualker forma",
+        "emoji": "🤷"
+      },
+      {
+        "en": "Instead",
+        "ru": "вместо этого",
+        "pt": "em vez disso",
+        "ruPron": "Vmesto etogo",
+        "ptPron": "Em vez disso",
+        "emoji": "🔄"
+      },
+      {
+        "en": "Besides",
+        "ru": "кроме того",
+        "pt": "além disso",
+        "ruPron": "Krome togo",
+        "ptPron": "Alem disso",
+        "emoji": "➕"
       }
     ],
     "hard": [
@@ -1531,6 +2939,70 @@ const WORDS = {
         "ruPron": "Inache",
         "ptPron": "Caso contrario",
         "emoji": "🔀"
+      },
+      {
+        "en": "Apparently",
+        "ru": "по-видимому",
+        "pt": "aparentemente",
+        "ruPron": "Po-vidimomu",
+        "ptPron": "Aparentemente",
+        "emoji": "🤔"
+      },
+      {
+        "en": "Eventually",
+        "ru": "в конце концов",
+        "pt": "eventualmente",
+        "ruPron": "V kontse kontsov",
+        "ptPron": "Eventualmente",
+        "emoji": "⏳"
+      },
+      {
+        "en": "Unfortunately",
+        "ru": "к сожалению",
+        "pt": "infelizmente",
+        "ruPron": "K sozhaleniyu",
+        "ptPron": "Infelizmente",
+        "emoji": "😔"
+      },
+      {
+        "en": "Fortunately",
+        "ru": "к счастью",
+        "pt": "felizmente",
+        "ruPron": "K schastyu",
+        "ptPron": "Felizmente",
+        "emoji": "🍀"
+      },
+      {
+        "en": "Actually",
+        "ru": "на самом деле",
+        "pt": "na verdade",
+        "ruPron": "Na samom dele",
+        "ptPron": "Na verdade",
+        "emoji": "✅"
+      },
+      {
+        "en": "Basically",
+        "ru": "по сути",
+        "pt": "basicamente",
+        "ruPron": "Po suti",
+        "ptPron": "Basicamente",
+        "emoji": "📌"
+      },
+      {
+        "en": "Generally",
+        "ru": "как правило",
+        "pt": "geralmente",
+        "ruPron": "Kak pravilo",
+        "ptPron": "Zheralmente",
+        "emoji": "📊"
+      },
+      {
+        "en": "Specifically",
+        "ru": "особенно",
+        "pt": "especificamente",
+        "ruPron": "Osobenno",
+        "ptPron": "Especificamente",
+        "emoji": "🎯"
       }
     ],
     "insane": [
@@ -1597,6 +3069,70 @@ const WORDS = {
         "ruPron": "Preimushchestvenno",
         "ptPron": "Predominantemente",
         "emoji": "📊"
+      },
+      {
+        "en": "Ostensibly",
+        "ru": "якобы",
+        "pt": "ostensivamente",
+        "ruPron": "Yakoby",
+        "ptPron": "Ostensivamente",
+        "emoji": "🎭"
+      },
+      {
+        "en": "Invariably",
+        "ru": "неизменно",
+        "pt": "invariavelmente",
+        "ruPron": "Neizmenno",
+        "ptPron": "Invariavelmente",
+        "emoji": "🔁"
+      },
+      {
+        "en": "Irrevocably",
+        "ru": "безвозвратно",
+        "pt": "irrevogavelmente",
+        "ruPron": "Bezvozvratno",
+        "ptPron": "Ihevogavelmente",
+        "emoji": "🔒"
+      },
+      {
+        "en": "Retrospectively",
+        "ru": "ретроспективно",
+        "pt": "retrospectivamente",
+        "ruPron": "Retrospektivno",
+        "ptPron": "Hetrospectivamente",
+        "emoji": "⏪"
+      },
+      {
+        "en": "Unwittingly",
+        "ru": "невольно",
+        "pt": "inconscientemente",
+        "ruPron": "Nevolno",
+        "ptPron": "Inconscientemente",
+        "emoji": "😳"
+      },
+      {
+        "en": "Painstakingly",
+        "ru": "кропотливо",
+        "pt": "meticulosamente",
+        "ruPron": "Kropotlivo",
+        "ptPron": "Meticulosamente",
+        "emoji": "🔬"
+      },
+      {
+        "en": "Indiscriminately",
+        "ru": "без разбора",
+        "pt": "indiscriminadamente",
+        "ruPron": "Bez razbora",
+        "ptPron": "Indiscriminadamente",
+        "emoji": "🎲"
+      },
+      {
+        "en": "Perfunctorily",
+        "ru": "формально",
+        "pt": "superficialmente",
+        "ruPron": "Formalno",
+        "ptPron": "Superficialmente",
+        "emoji": "📄"
       }
     ]
   },
@@ -1665,6 +3201,70 @@ const WORDS = {
         "ruPron": "Gazirovka",
         "ptPron": "Hefrizherante",
         "emoji": "🥤"
+      },
+      {
+        "en": "Orange juice",
+        "ru": "апельсиновый сок",
+        "pt": "suco de laranja",
+        "ruPron": "Apelsinovyy sok",
+        "ptPron": "Suco de laranzha",
+        "emoji": "🧃"
+      },
+      {
+        "en": "Iced tea",
+        "ru": "холодный чай",
+        "pt": "chá gelado",
+        "ruPron": "Kholodnyy chay",
+        "ptPron": "Sha zhelado",
+        "emoji": "🧊"
+      },
+      {
+        "en": "Cappuccino",
+        "ru": "капучино",
+        "pt": "cappuccino",
+        "ruPron": "Kapuchino",
+        "ptPron": "Cappuccino",
+        "emoji": "☕"
+      },
+      {
+        "en": "Espresso",
+        "ru": "эспрессо",
+        "pt": "espresso",
+        "ruPron": "Espresso",
+        "ptPron": "Espresso",
+        "emoji": "☕"
+      },
+      {
+        "en": "Milkshake",
+        "ru": "молочный коктейль",
+        "pt": "milkshake",
+        "ruPron": "Molochnyy kokteyl",
+        "ptPron": "Milkshake",
+        "emoji": "🥤"
+      },
+      {
+        "en": "Rum",
+        "ru": "ром",
+        "pt": "rum",
+        "ruPron": "Rom",
+        "ptPron": "Hum",
+        "emoji": "🥃"
+      },
+      {
+        "en": "Gin",
+        "ru": "джин",
+        "pt": "gin",
+        "ruPron": "Dzhin",
+        "ptPron": "Zhin",
+        "emoji": "🍸"
+      },
+      {
+        "en": "Yogurt drink",
+        "ru": "питьевой йогурт",
+        "pt": "iogurte líquido",
+        "ruPron": "Pityevoy yogurt",
+        "ptPron": "Iogurte likido",
+        "emoji": "🥛"
       }
     ],
     "medium": [
@@ -1731,6 +3331,70 @@ const WORDS = {
         "ruPron": "Sidr",
         "ptPron": "Sidra",
         "emoji": "🍏"
+      },
+      {
+        "en": "Mojito",
+        "ru": "мохито",
+        "pt": "mojito",
+        "ruPron": "Mokhito",
+        "ptPron": "Mozhito",
+        "emoji": "🍹"
+      },
+      {
+        "en": "Sangria",
+        "ru": "сангрия",
+        "pt": "sangria",
+        "ruPron": "Sangriya",
+        "ptPron": "Sangria",
+        "emoji": "🍷"
+      },
+      {
+        "en": "Grape juice",
+        "ru": "виноградный сок",
+        "pt": "suco de uva",
+        "ruPron": "Vinogradnyy sok",
+        "ptPron": "Suco de uva",
+        "emoji": "🧃"
+      },
+      {
+        "en": "Ginger tea",
+        "ru": "имбирный чай",
+        "pt": "chá de gengibre",
+        "ruPron": "Imbirnyy chay",
+        "ptPron": "Sha de zhenzhibre",
+        "emoji": "🍵"
+      },
+      {
+        "en": "Green tea",
+        "ru": "зелёный чай",
+        "pt": "chá verde",
+        "ruPron": "Zelyonyy chay",
+        "ptPron": "Sha verde",
+        "emoji": "🍵"
+      },
+      {
+        "en": "Black tea",
+        "ru": "чёрный чай",
+        "pt": "chá preto",
+        "ruPron": "Chyornyy chay",
+        "ptPron": "Sha preto",
+        "emoji": "🍵"
+      },
+      {
+        "en": "Hot toddy",
+        "ru": "грог",
+        "pt": "grogue",
+        "ruPron": "Grog",
+        "ptPron": "Grozhe",
+        "emoji": "🥃"
+      },
+      {
+        "en": "Fruit tea",
+        "ru": "фруктовый чай",
+        "pt": "chá de frutas",
+        "ruPron": "Fruktovyy chay",
+        "ptPron": "Sha de frutas",
+        "emoji": "🍓"
       }
     ],
     "hard": [
@@ -1797,6 +3461,70 @@ const WORDS = {
         "ruPron": "Vodka",
         "ptPron": "Vodca",
         "emoji": "🍸"
+      },
+      {
+        "en": "Rosé wine",
+        "ru": "розовое вино",
+        "pt": "vinho rosé",
+        "ruPron": "Rozovoye vino",
+        "ptPron": "Vinyo rose",
+        "emoji": "🍷"
+      },
+      {
+        "en": "Craft beer",
+        "ru": "крафтовое пиво",
+        "pt": "cerveja artesanal",
+        "ruPron": "Kraftovoye pivo",
+        "ptPron": "Cervezha artesanal",
+        "emoji": "🍺"
+      },
+      {
+        "en": "Non-alcoholic beer",
+        "ru": "безалкогольное пиво",
+        "pt": "cerveja sem álcool",
+        "ruPron": "Bezalkogolnoye pivo",
+        "ptPron": "Cervezha sem alcool",
+        "emoji": "🍺"
+      },
+      {
+        "en": "Prosecco",
+        "ru": "просекко",
+        "pt": "prosecco",
+        "ruPron": "Prosekko",
+        "ptPron": "Prosecco",
+        "emoji": "🥂"
+      },
+      {
+        "en": "Brandy",
+        "ru": "бренди",
+        "pt": "conhaque",
+        "ruPron": "Brendi",
+        "ptPron": "Conyake",
+        "emoji": "🥃"
+      },
+      {
+        "en": "Tequila",
+        "ru": "текила",
+        "pt": "tequila",
+        "ruPron": "Tekila",
+        "ptPron": "Tekila",
+        "emoji": "🥃"
+      },
+      {
+        "en": "Sake",
+        "ru": "саке",
+        "pt": "saquê",
+        "ruPron": "Sake",
+        "ptPron": "Saque",
+        "emoji": "🍶"
+      },
+      {
+        "en": "Port wine",
+        "ru": "портвейн",
+        "pt": "vinho do porto",
+        "ruPron": "Portveyn",
+        "ptPron": "Vinyo do porto",
+        "emoji": "🍷"
       }
     ],
     "insane": [
@@ -1863,6 +3591,70 @@ const WORDS = {
         "ruPron": "Fruktovyy punsh",
         "ptPron": "Ponshe de frutas",
         "emoji": "🍹"
+      },
+      {
+        "en": "Vermouth",
+        "ru": "вермут",
+        "pt": "vermute",
+        "ruPron": "Vermut",
+        "ptPron": "Vermute",
+        "emoji": "🍷"
+      },
+      {
+        "en": "Grappa",
+        "ru": "граппа",
+        "pt": "grappa",
+        "ruPron": "Grappa",
+        "ptPron": "Grappa",
+        "emoji": "🥃"
+      },
+      {
+        "en": "Ouzo",
+        "ru": "узо",
+        "pt": "ouzo",
+        "ruPron": "Uzo",
+        "ptPron": "Ouzo",
+        "emoji": "🥃"
+      },
+      {
+        "en": "Eggnog",
+        "ru": "гоголь-моголь",
+        "pt": "gemada",
+        "ruPron": "Gogol-mogol",
+        "ptPron": "Zhemada",
+        "emoji": "🥛"
+      },
+      {
+        "en": "Horchata",
+        "ru": "орчата",
+        "pt": "horchata",
+        "ruPron": "Orchata",
+        "ptPron": "Horshata",
+        "emoji": "🥛"
+      },
+      {
+        "en": "Kombucha",
+        "ru": "комбуча",
+        "pt": "kombuchá",
+        "ruPron": "Kombucha",
+        "ptPron": "Kombusha",
+        "emoji": "🍾"
+      },
+      {
+        "en": "Tarhun",
+        "ru": "тархун",
+        "pt": "tarhun",
+        "ruPron": "Tarkhun",
+        "ptPron": "Tarhun",
+        "emoji": "🥤"
+      },
+      {
+        "en": "Sbiten",
+        "ru": "сбитень",
+        "pt": "sbiten",
+        "ruPron": "Sbiten",
+        "ptPron": "Sbiten",
+        "emoji": "🍯"
       }
     ]
   },
@@ -1939,6 +3731,42 @@ const WORDS = {
         "ptPron": "Hosa",
         "emoji": "🌸",
         "swatch": "#ec407a"
+      },
+      {
+        "en": "Sky blue",
+        "ru": "голубой",
+        "pt": "azul claro",
+        "ruPron": "Goluboy",
+        "ptPron": "Azul claro",
+        "emoji": "🔵",
+        "swatch": "#87CEEB"
+      },
+      {
+        "en": "Lime",
+        "ru": "лаймовый",
+        "pt": "verde-limão",
+        "ruPron": "Laymovyy",
+        "ptPron": "Verde-limowng",
+        "emoji": "🟢",
+        "swatch": "#BFFF00"
+      },
+      {
+        "en": "Cream",
+        "ru": "кремовый",
+        "pt": "creme",
+        "ruPron": "Kremovyy",
+        "ptPron": "Creme",
+        "emoji": "⚪",
+        "swatch": "#FFFDD0"
+      },
+      {
+        "en": "Indigo",
+        "ru": "индиго",
+        "pt": "anil",
+        "ruPron": "Indigo",
+        "ptPron": "Anil",
+        "emoji": "🟣",
+        "swatch": "#4B0082"
       }
     ],
     "medium": [
@@ -2013,6 +3841,42 @@ const WORDS = {
         "ptPron": "Violeta",
         "emoji": "🟣",
         "swatch": "#7c4dff"
+      },
+      {
+        "en": "Coral",
+        "ru": "коралловый",
+        "pt": "coral",
+        "ruPron": "Korallovyy",
+        "ptPron": "Coral",
+        "emoji": "🟠",
+        "swatch": "#FF7F50"
+      },
+      {
+        "en": "Mint",
+        "ru": "мятный",
+        "pt": "menta",
+        "ruPron": "Myatnyy",
+        "ptPron": "Menta",
+        "emoji": "🟢",
+        "swatch": "#98FF98"
+      },
+      {
+        "en": "Peach",
+        "ru": "персиковый",
+        "pt": "pêssego",
+        "ruPron": "Persikovyy",
+        "ptPron": "Pessego",
+        "emoji": "🟠",
+        "swatch": "#FFE5B4"
+      },
+      {
+        "en": "Denim",
+        "ru": "джинсовый",
+        "pt": "jeans",
+        "ruPron": "Dzhinsovyy",
+        "ptPron": "Zheans",
+        "emoji": "🔵",
+        "swatch": "#1560BD"
       }
     ],
     "hard": [
@@ -2087,6 +3951,42 @@ const WORDS = {
         "ptPron": "Cinza-carvowng",
         "emoji": "⚫",
         "swatch": "#36454f"
+      },
+      {
+        "en": "Rust",
+        "ru": "ржавый",
+        "pt": "ferrugem",
+        "ruPron": "Rzhavyy",
+        "ptPron": "Fehuzhem",
+        "emoji": "🟠",
+        "swatch": "#B7410E"
+      },
+      {
+        "en": "Teal",
+        "ru": "изумрудно-синий",
+        "pt": "verde-azulado",
+        "ruPron": "Izumrudno-siniy",
+        "ptPron": "Verde-azulado",
+        "emoji": "🔵",
+        "swatch": "#008080"
+      },
+      {
+        "en": "Salmon",
+        "ru": "лососёвый",
+        "pt": "salmão",
+        "ruPron": "Lososyovyy",
+        "ptPron": "Salmowng",
+        "emoji": "🟠",
+        "swatch": "#FA8072"
+      },
+      {
+        "en": "Plum",
+        "ru": "сливовый",
+        "pt": "ameixa",
+        "ruPron": "Slivovyy",
+        "ptPron": "Ameisha",
+        "emoji": "🟣",
+        "swatch": "#8E4585"
       }
     ],
     "insane": [
@@ -2161,6 +4061,42 @@ const WORDS = {
         "ptPron": "Cor de toupeira",
         "emoji": "🟤",
         "swatch": "#483c32"
+      },
+      {
+        "en": "Puce",
+        "ru": "тёмно-красновато-коричневый",
+        "pt": "puce",
+        "ruPron": "Tyomno-krasnovato-korichnevyy",
+        "ptPron": "Puce",
+        "emoji": "🟤",
+        "swatch": "#A95C68"
+      },
+      {
+        "en": "Fuchsia",
+        "ru": "фуксия",
+        "pt": "fúcsia",
+        "ruPron": "Fuksiya",
+        "ptPron": "Fucsia",
+        "emoji": "🩷",
+        "swatch": "#FF00FF"
+      },
+      {
+        "en": "Celadon",
+        "ru": "селадон",
+        "pt": "celadon",
+        "ruPron": "Seladon",
+        "ptPron": "Celadon",
+        "emoji": "🟢",
+        "swatch": "#ACE1AF"
+      },
+      {
+        "en": "Cinnabar",
+        "ru": "киноварь",
+        "pt": "cinábrio",
+        "ruPron": "Kinovar",
+        "ptPron": "Cinabrio",
+        "emoji": "🔴",
+        "swatch": "#E34234"
       }
     ]
   },
@@ -2229,6 +4165,70 @@ const WORDS = {
         "ruPron": "Maslo",
         "ptPron": "Manteiga",
         "emoji": "🧈"
+      },
+      {
+        "en": "Ham",
+        "ru": "ветчина",
+        "pt": "presunto",
+        "ruPron": "Vetchina",
+        "ptPron": "Presunto",
+        "emoji": "🍖"
+      },
+      {
+        "en": "Bacon",
+        "ru": "бекон",
+        "pt": "bacon",
+        "ruPron": "Bekon",
+        "ptPron": "Bacon",
+        "emoji": "🥓"
+      },
+      {
+        "en": "Yogurt",
+        "ru": "йогурт",
+        "pt": "iogurte",
+        "ruPron": "Yogurt",
+        "ptPron": "Iogurte",
+        "emoji": "🥣"
+      },
+      {
+        "en": "Cookie",
+        "ru": "печенье",
+        "pt": "biscoito",
+        "ruPron": "Pechenye",
+        "ptPron": "Biscoito",
+        "emoji": "🍪"
+      },
+      {
+        "en": "Cake",
+        "ru": "торт",
+        "pt": "bolo",
+        "ruPron": "Tort",
+        "ptPron": "Bolo",
+        "emoji": "🎂"
+      },
+      {
+        "en": "Chocolate",
+        "ru": "шоколад",
+        "pt": "chocolate",
+        "ruPron": "Shokolad",
+        "ptPron": "Shocolate",
+        "emoji": "🍫"
+      },
+      {
+        "en": "Ice cream",
+        "ru": "мороженое",
+        "pt": "sorvete",
+        "ruPron": "Morozhenoye",
+        "ptPron": "Sorvete",
+        "emoji": "🍨"
+      },
+      {
+        "en": "Noodles",
+        "ru": "лапша",
+        "pt": "macarrão",
+        "ruPron": "Lapsha",
+        "ptPron": "Macahowng",
+        "emoji": "🍜"
       }
     ],
     "medium": [
@@ -2295,6 +4295,70 @@ const WORDS = {
         "ruPron": "Sol",
         "ptPron": "Sal",
         "emoji": "🧂"
+      },
+      {
+        "en": "Omelette",
+        "ru": "омлет",
+        "pt": "omelete",
+        "ruPron": "Omlet",
+        "ptPron": "Omelete",
+        "emoji": "🍳"
+      },
+      {
+        "en": "Meatball",
+        "ru": "тефтеля",
+        "pt": "almôndega",
+        "ruPron": "Teftelya",
+        "ptPron": "Almondega",
+        "emoji": "🍖"
+      },
+      {
+        "en": "Cutlet",
+        "ru": "котлета",
+        "pt": "costeleta",
+        "ruPron": "Kotleta",
+        "ptPron": "Costeleta",
+        "emoji": "🍖"
+      },
+      {
+        "en": "Filling",
+        "ru": "начинка",
+        "pt": "recheio",
+        "ruPron": "Nachinka",
+        "ptPron": "Hesheio",
+        "emoji": "🥧"
+      },
+      {
+        "en": "Crust",
+        "ru": "корка",
+        "pt": "crosta",
+        "ruPron": "Korka",
+        "ptPron": "Crosta",
+        "emoji": "🍞"
+      },
+      {
+        "en": "Syrup",
+        "ru": "сироп",
+        "pt": "xarope",
+        "ruPron": "Sirop",
+        "ptPron": "Sharope",
+        "emoji": "🍯"
+      },
+      {
+        "en": "Vinegar",
+        "ru": "уксус",
+        "pt": "vinagre",
+        "ruPron": "Uksus",
+        "ptPron": "Vinagre",
+        "emoji": "🧴"
+      },
+      {
+        "en": "Mustard",
+        "ru": "горчица",
+        "pt": "mostarda",
+        "ruPron": "Gorchitsa",
+        "ptPron": "Mostarda",
+        "emoji": "🌭"
       }
     ],
     "hard": [
@@ -2361,6 +4425,70 @@ const WORDS = {
         "ruPron": "Podlivka",
         "ptPron": "Molyo",
         "emoji": "🥣"
+      },
+      {
+        "en": "Goulash",
+        "ru": "гуляш",
+        "pt": "goulash",
+        "ruPron": "Gulyash",
+        "ptPron": "Goulash",
+        "emoji": "🍲"
+      },
+      {
+        "en": "Risotto",
+        "ru": "ризотто",
+        "pt": "risoto",
+        "ruPron": "Rizotto",
+        "ptPron": "Hisoto",
+        "emoji": "🍚"
+      },
+      {
+        "en": "Ravioli",
+        "ru": "равиоли",
+        "pt": "ravióli",
+        "ruPron": "Ravioli",
+        "ptPron": "Havioli",
+        "emoji": "🥟"
+      },
+      {
+        "en": "Souffle",
+        "ru": "суфле",
+        "pt": "suflê",
+        "ruPron": "Sufle",
+        "ptPron": "Sufle",
+        "emoji": "🍮"
+      },
+      {
+        "en": "Custard",
+        "ru": "заварной крем",
+        "pt": "creme de confeiteiro",
+        "ruPron": "Zavarnoy krem",
+        "ptPron": "Creme de confeiteiro",
+        "emoji": "🍮"
+      },
+      {
+        "en": "Marzipan",
+        "ru": "марципан",
+        "pt": "maçapão",
+        "ruPron": "Martsipan",
+        "ptPron": "Masapowng",
+        "emoji": "🍬"
+      },
+      {
+        "en": "Nougat",
+        "ru": "нуга",
+        "pt": "nogado",
+        "ruPron": "Nuga",
+        "ptPron": "Nogado",
+        "emoji": "🍬"
+      },
+      {
+        "en": "Meringue",
+        "ru": "безе",
+        "pt": "merengue",
+        "ruPron": "Beze",
+        "ptPron": "Merenzhe",
+        "emoji": "🍰"
       }
     ],
     "insane": [
@@ -2427,6 +4555,70 @@ const WORDS = {
         "ruPron": "Varenye",
         "ptPron": "Conserva",
         "emoji": "🫙"
+      },
+      {
+        "en": "Bouillabaisse",
+        "ru": "буйабес",
+        "pt": "bouillabaisse",
+        "ruPron": "Buyabes",
+        "ptPron": "Bouillabaisse",
+        "emoji": "🍲"
+      },
+      {
+        "en": "Consommé",
+        "ru": "консоме",
+        "pt": "consommé",
+        "ruPron": "Konsome",
+        "ptPron": "Consomme",
+        "emoji": "🍵"
+      },
+      {
+        "en": "Terrine",
+        "ru": "террин",
+        "pt": "terrine",
+        "ruPron": "Terrin",
+        "ptPron": "Tehine",
+        "emoji": "🍖"
+      },
+      {
+        "en": "Charcuterie",
+        "ru": "колбасные изделия",
+        "pt": "charcutaria",
+        "ruPron": "Kolbasnyye izdeliya",
+        "ptPron": "Sharcutaria",
+        "emoji": "🥓"
+      },
+      {
+        "en": "Foie gras",
+        "ru": "фуа-гра",
+        "pt": "foie gras",
+        "ruPron": "Fua-gra",
+        "ptPron": "Foie gras",
+        "emoji": "🍖"
+      },
+      {
+        "en": "Ratatouille",
+        "ru": "рататуй",
+        "pt": "ratatouille",
+        "ruPron": "Ratatuy",
+        "ptPron": "Hatatouille",
+        "emoji": "🍆"
+      },
+      {
+        "en": "Bisque",
+        "ru": "биск",
+        "pt": "bisque",
+        "ruPron": "Bisk",
+        "ptPron": "Biske",
+        "emoji": "🍲"
+      },
+      {
+        "en": "Julienne",
+        "ru": "жюльен",
+        "pt": "julienne",
+        "ruPron": "Zhyulyen",
+        "ptPron": "Zhulienne",
+        "emoji": "🍄"
       }
     ]
   },
@@ -2495,6 +4687,70 @@ const WORDS = {
         "ruPron": "Stroitel",
         "ptPron": "Construtor",
         "emoji": "👷"
+      },
+      {
+        "en": "Baker",
+        "ru": "пекарь",
+        "pt": "padeiro",
+        "ruPron": "Pekar",
+        "ptPron": "Padeiro",
+        "emoji": "🥖"
+      },
+      {
+        "en": "Waiter",
+        "ru": "официант",
+        "pt": "garçom",
+        "ruPron": "Ofitsiant",
+        "ptPron": "Garsom",
+        "emoji": "🍽️"
+      },
+      {
+        "en": "Cashier",
+        "ru": "кассир",
+        "pt": "caixa",
+        "ruPron": "Kassir",
+        "ptPron": "Caisha",
+        "emoji": "💵"
+      },
+      {
+        "en": "Cleaner",
+        "ru": "уборщик",
+        "pt": "faxineiro",
+        "ruPron": "Uborshchik",
+        "ptPron": "Fashineiro",
+        "emoji": "🧹"
+      },
+      {
+        "en": "Guard",
+        "ru": "охранник",
+        "pt": "guarda",
+        "ruPron": "Okhrannik",
+        "ptPron": "Guarda",
+        "emoji": "💂"
+      },
+      {
+        "en": "Barber",
+        "ru": "парикмахер",
+        "pt": "barbeiro",
+        "ruPron": "Parikmakher",
+        "ptPron": "Barbeiro",
+        "emoji": "💈"
+      },
+      {
+        "en": "Gardener",
+        "ru": "садовник",
+        "pt": "jardineiro",
+        "ruPron": "Sadovnik",
+        "ptPron": "Zhardineiro",
+        "emoji": "🌱"
+      },
+      {
+        "en": "Postman",
+        "ru": "почтальон",
+        "pt": "carteiro",
+        "ruPron": "Pochtalon",
+        "ptPron": "Carteiro",
+        "emoji": "📮"
       }
     ],
     "medium": [
@@ -2561,6 +4817,70 @@ const WORDS = {
         "ruPron": "Fotograf",
         "ptPron": "Fotografo",
         "emoji": "📷"
+      },
+      {
+        "en": "Dentist",
+        "ru": "стоматолог",
+        "pt": "dentista",
+        "ruPron": "Stomatolog",
+        "ptPron": "Dentista",
+        "emoji": "🦷"
+      },
+      {
+        "en": "Chef",
+        "ru": "шеф-повар",
+        "pt": "chef",
+        "ruPron": "Shef-povar",
+        "ptPron": "Shef",
+        "emoji": "👨‍🍳"
+      },
+      {
+        "en": "Tailor",
+        "ru": "портной",
+        "pt": "alfaiate",
+        "ruPron": "Portnoy",
+        "ptPron": "Alfaiate",
+        "emoji": "🧵"
+      },
+      {
+        "en": "Translator",
+        "ru": "переводчик",
+        "pt": "tradutor",
+        "ruPron": "Perevodchik",
+        "ptPron": "Tradutor",
+        "emoji": "🌐"
+      },
+      {
+        "en": "Designer",
+        "ru": "дизайнер",
+        "pt": "designer",
+        "ruPron": "Dizayner",
+        "ptPron": "Designer",
+        "emoji": "🎨"
+      },
+      {
+        "en": "Programmer",
+        "ru": "программист",
+        "pt": "programador",
+        "ruPron": "Programmist",
+        "ptPron": "Programador",
+        "emoji": "💻"
+      },
+      {
+        "en": "Salesperson",
+        "ru": "продавец",
+        "pt": "vendedor",
+        "ruPron": "Prodavets",
+        "ptPron": "Vendedor",
+        "emoji": "🛍️"
+      },
+      {
+        "en": "Manager",
+        "ru": "менеджер",
+        "pt": "gerente",
+        "ruPron": "Menedzher",
+        "ptPron": "Zherente",
+        "emoji": "📋"
       }
     ],
     "hard": [
@@ -2627,6 +4947,70 @@ const WORDS = {
         "ruPron": "Zhurnalist",
         "ptPron": "Zhornalista",
         "emoji": "📰"
+      },
+      {
+        "en": "Psychologist",
+        "ru": "психолог",
+        "pt": "psicólogo",
+        "ruPron": "Psikholog",
+        "ptPron": "Psicologo",
+        "emoji": "🧠"
+      },
+      {
+        "en": "Pharmacist",
+        "ru": "фармацевт",
+        "pt": "farmacêutico",
+        "ruPron": "Farmatsevt",
+        "ptPron": "Farmaceutico",
+        "emoji": "💊"
+      },
+      {
+        "en": "Biologist",
+        "ru": "биолог",
+        "pt": "biólogo",
+        "ruPron": "Biolog",
+        "ptPron": "Biologo",
+        "emoji": "🔬"
+      },
+      {
+        "en": "Economist",
+        "ru": "экономист",
+        "pt": "economista",
+        "ruPron": "Ekonomist",
+        "ptPron": "Economista",
+        "emoji": "📈"
+      },
+      {
+        "en": "Historian",
+        "ru": "историк",
+        "pt": "historiador",
+        "ruPron": "Istorik",
+        "ptPron": "Historiador",
+        "emoji": "📜"
+      },
+      {
+        "en": "Librarian",
+        "ru": "библиотекарь",
+        "pt": "bibliotecário",
+        "ruPron": "Bibliotekar",
+        "ptPron": "Bibliotecario",
+        "emoji": "📚"
+      },
+      {
+        "en": "Interpreter",
+        "ru": "устный переводчик",
+        "pt": "intérprete",
+        "ruPron": "Ustnyy perevodchik",
+        "ptPron": "Interprete",
+        "emoji": "🗣️"
+      },
+      {
+        "en": "Consultant",
+        "ru": "консультант",
+        "pt": "consultor",
+        "ruPron": "Konsultant",
+        "ptPron": "Consultor",
+        "emoji": "💼"
       }
     ],
     "insane": [
@@ -2693,6 +5077,70 @@ const WORDS = {
         "ruPron": "Taksidermist",
         "ptPron": "Tashidermista",
         "emoji": "🦴"
+      },
+      {
+        "en": "Ombudsman",
+        "ru": "омбудсмен",
+        "pt": "ombudsman",
+        "ruPron": "Ombudsmen",
+        "ptPron": "Ombudsman",
+        "emoji": "⚖️"
+      },
+      {
+        "en": "Cryptographer",
+        "ru": "криптограф",
+        "pt": "criptógrafo",
+        "ruPron": "Kriptograf",
+        "ptPron": "Criptografo",
+        "emoji": "🔐"
+      },
+      {
+        "en": "Lexicographer",
+        "ru": "лексикограф",
+        "pt": "lexicógrafo",
+        "ruPron": "Leksikograf",
+        "ptPron": "Leshicografo",
+        "emoji": "📖"
+      },
+      {
+        "en": "Numismatist",
+        "ru": "нумизмат",
+        "pt": "numismata",
+        "ruPron": "Numizmat",
+        "ptPron": "Numismata",
+        "emoji": "🪙"
+      },
+      {
+        "en": "Entomologist",
+        "ru": "энтомолог",
+        "pt": "entomologista",
+        "ruPron": "Entomolog",
+        "ptPron": "Entomolozhista",
+        "emoji": "🐞"
+      },
+      {
+        "en": "Horologist",
+        "ru": "часовщик",
+        "pt": "relojoeiro",
+        "ruPron": "Chasovshchik",
+        "ptPron": "Helozhoeiro",
+        "emoji": "🕰️"
+      },
+      {
+        "en": "Genealogist",
+        "ru": "генеалог",
+        "pt": "genealogista",
+        "ruPron": "Genealog",
+        "ptPron": "Zhenealozhista",
+        "emoji": "🌳"
+      },
+      {
+        "en": "Philologist",
+        "ru": "филолог",
+        "pt": "filólogo",
+        "ruPron": "Filolog",
+        "ptPron": "Filologo",
+        "emoji": "📚"
       }
     ]
   },
@@ -2761,6 +5209,70 @@ const WORDS = {
         "ruPron": "Korabl",
         "ptPron": "Navio",
         "emoji": "🚢"
+      },
+      {
+        "en": "Skateboard",
+        "ru": "скейтборд",
+        "pt": "skate",
+        "ruPron": "Skeytbord",
+        "ptPron": "Skate",
+        "emoji": "🛹"
+      },
+      {
+        "en": "Wheelchair",
+        "ru": "инвалидное кресло",
+        "pt": "cadeira de rodas",
+        "ruPron": "Invalidnoye kreslo",
+        "ptPron": "Cadeira de rodas",
+        "emoji": "🦽"
+      },
+      {
+        "en": "Sled",
+        "ru": "санки",
+        "pt": "trenó",
+        "ruPron": "Sanki",
+        "ptPron": "Treno",
+        "emoji": "🛷"
+      },
+      {
+        "en": "Canoe",
+        "ru": "каноэ",
+        "pt": "canoa",
+        "ruPron": "Kanoe",
+        "ptPron": "Canoa",
+        "emoji": "🛶"
+      },
+      {
+        "en": "Cart",
+        "ru": "тележка",
+        "pt": "carrinho",
+        "ruPron": "Telezhka",
+        "ptPron": "Cahinyo",
+        "emoji": "🛒"
+      },
+      {
+        "en": "Pickup truck",
+        "ru": "пикап",
+        "pt": "picape",
+        "ruPron": "Pikap",
+        "ptPron": "Picape",
+        "emoji": "🛻"
+      },
+      {
+        "en": "Minibus",
+        "ru": "маршрутка",
+        "pt": "micro-ônibus",
+        "ruPron": "Marshrutka",
+        "ptPron": "Micro-onibus",
+        "emoji": "🚐"
+      },
+      {
+        "en": "Cable car",
+        "ru": "канатная дорога",
+        "pt": "teleférico",
+        "ruPron": "Kanatnaya doroga",
+        "ptPron": "Teleferico",
+        "emoji": "🚡"
       }
     ],
     "medium": [
@@ -2827,6 +5339,70 @@ const WORDS = {
         "ruPron": "Furgon",
         "ptPron": "Van",
         "emoji": "🚐"
+      },
+      {
+        "en": "Kayak",
+        "ru": "байдарка",
+        "pt": "caiaque",
+        "ruPron": "Baydarka",
+        "ptPron": "Caiake",
+        "emoji": "🛶"
+      },
+      {
+        "en": "Raft",
+        "ru": "плот",
+        "pt": "jangada",
+        "ruPron": "Plot",
+        "ptPron": "Zhangada",
+        "emoji": "🛟"
+      },
+      {
+        "en": "Jet ski",
+        "ru": "гидроцикл",
+        "pt": "jet ski",
+        "ruPron": "Gidrotsikl",
+        "ptPron": "Zhet ski",
+        "emoji": "🌊"
+      },
+      {
+        "en": "Limousine",
+        "ru": "лимузин",
+        "pt": "limusine",
+        "ruPron": "Limuzin",
+        "ptPron": "Limusine",
+        "emoji": "🚗"
+      },
+      {
+        "en": "Camper van",
+        "ru": "дом на колёсах",
+        "pt": "trailer",
+        "ruPron": "Dom na kolyosakh",
+        "ptPron": "Trailer",
+        "emoji": "🚐"
+      },
+      {
+        "en": "Golf cart",
+        "ru": "гольф-кар",
+        "pt": "carrinho de golfe",
+        "ruPron": "Golf-kar",
+        "ptPron": "Cahinyo de golfe",
+        "emoji": "🛺"
+      },
+      {
+        "en": "Forklift",
+        "ru": "погрузчик",
+        "pt": "empilhadeira",
+        "ruPron": "Pogruzchik",
+        "ptPron": "Empilyadeira",
+        "emoji": "🏗️"
+      },
+      {
+        "en": "Bulldozer",
+        "ru": "бульдозер",
+        "pt": "buldôzer",
+        "ruPron": "Buldozer",
+        "ptPron": "Buldozer",
+        "emoji": "🚜"
       }
     ],
     "hard": [
@@ -2893,6 +5469,70 @@ const WORDS = {
         "ruPron": "Tovarnyy poyezd",
         "ptPron": "Trem de carga",
         "emoji": "🚂"
+      },
+      {
+        "en": "Crane truck",
+        "ru": "автокран",
+        "pt": "caminhão-guindaste",
+        "ruPron": "Avtokran",
+        "ptPron": "Caminyowng-zhindaste",
+        "emoji": "🏗️"
+      },
+      {
+        "en": "Garbage truck",
+        "ru": "мусоровоз",
+        "pt": "caminhão de lixo",
+        "ruPron": "Musorovoz",
+        "ptPron": "Caminyowng de lisho",
+        "emoji": "🚛"
+      },
+      {
+        "en": "Fire truck",
+        "ru": "пожарная машина",
+        "pt": "carro de bombeiros",
+        "ruPron": "Pozharnaya mashina",
+        "ptPron": "Caho de bombeiros",
+        "emoji": "🚒"
+      },
+      {
+        "en": "Tow truck",
+        "ru": "эвакуатор",
+        "pt": "reboque",
+        "ruPron": "Evakuator",
+        "ptPron": "Heboke",
+        "emoji": "🚛"
+      },
+      {
+        "en": "Cement mixer",
+        "ru": "бетономешалка",
+        "pt": "betoneira",
+        "ruPron": "Betonomeshalka",
+        "ptPron": "Betoneira",
+        "emoji": "🚧"
+      },
+      {
+        "en": "Dump truck",
+        "ru": "самосвал",
+        "pt": "caminhão basculante",
+        "ruPron": "Samosval",
+        "ptPron": "Caminyowng basculante",
+        "emoji": "🚛"
+      },
+      {
+        "en": "Semi-trailer",
+        "ru": "фура",
+        "pt": "carreta",
+        "ruPron": "Fura",
+        "ptPron": "Caheta",
+        "emoji": "🚛"
+      },
+      {
+        "en": "Hang glider",
+        "ru": "дельтаплан",
+        "pt": "asa-delta",
+        "ruPron": "Deltaplan",
+        "ptPron": "Asa-delta",
+        "emoji": "🪂"
       }
     ],
     "insane": [
@@ -2959,6 +5599,70 @@ const WORDS = {
         "ruPron": "Katamaran",
         "ptPron": "Catamarang",
         "emoji": "⛵"
+      },
+      {
+        "en": "Amphibious vehicle",
+        "ru": "амфибия",
+        "pt": "veículo anfíbio",
+        "ruPron": "Amfibiya",
+        "ptPron": "Veiculo anfibio",
+        "emoji": "🚙"
+      },
+      {
+        "en": "Maglev train",
+        "ru": "поезд на магнитной подушке",
+        "pt": "trem maglev",
+        "ruPron": "Poyezd na magnitnoy podushke",
+        "ptPron": "Trem maglev",
+        "emoji": "🚄"
+      },
+      {
+        "en": "Bathyscaphe",
+        "ru": "батискаф",
+        "pt": "batiscafo",
+        "ruPron": "Batiskaf",
+        "ptPron": "Batiscafo",
+        "emoji": "🌊"
+      },
+      {
+        "en": "Gyrocopter",
+        "ru": "автожир",
+        "pt": "autogiro",
+        "ruPron": "Avtozhir",
+        "ptPron": "Autozhiro",
+        "emoji": "🚁"
+      },
+      {
+        "en": "Sidecar motorcycle",
+        "ru": "мотоцикл с коляской",
+        "pt": "motocicleta com sidecar",
+        "ruPron": "Mototsikl s kolyaskoy",
+        "ptPron": "Motocicleta com sidecar",
+        "emoji": "🏍️"
+      },
+      {
+        "en": "Pontoon boat",
+        "ru": "понтонная лодка",
+        "pt": "barco pontão",
+        "ruPron": "Pontonnaya lodka",
+        "ptPron": "Barco pontowng",
+        "emoji": "⛴️"
+      },
+      {
+        "en": "Land yacht",
+        "ru": "парусная тележка",
+        "pt": "carro à vela",
+        "ruPron": "Parusnaya telezhka",
+        "ptPron": "Caho à vela",
+        "emoji": "⛵"
+      },
+      {
+        "en": "Steamroller",
+        "ru": "каток",
+        "pt": "rolo compressor",
+        "ruPron": "Katok",
+        "ptPron": "Holo compressor",
+        "emoji": "🚧"
       }
     ]
   },
@@ -2995,6 +5699,38 @@ const WORDS = {
         "ruPron": "Osen",
         "ptPron": "Outono",
         "emoji": "🍂"
+      },
+      {
+        "en": "Weather",
+        "ru": "погода",
+        "pt": "tempo",
+        "ruPron": "Pogoda",
+        "ptPron": "Tempo",
+        "emoji": "🌤️"
+      },
+      {
+        "en": "Climate",
+        "ru": "климат",
+        "pt": "clima",
+        "ruPron": "Klimat",
+        "ptPron": "Clima",
+        "emoji": "🌍"
+      },
+      {
+        "en": "Sunshine",
+        "ru": "солнечный свет",
+        "pt": "luz do sol",
+        "ruPron": "Solnechnyy svet",
+        "ptPron": "Luz do sol",
+        "emoji": "☀️"
+      },
+      {
+        "en": "Cloud",
+        "ru": "облако",
+        "pt": "nuvem",
+        "ruPron": "Oblako",
+        "ptPron": "Nuvem",
+        "emoji": "☁️"
       }
     ],
     "medium": [
@@ -3029,6 +5765,38 @@ const WORDS = {
         "ruPron": "Veter",
         "ptPron": "Vento",
         "emoji": "💨"
+      },
+      {
+        "en": "Storm",
+        "ru": "шторм",
+        "pt": "tempestade",
+        "ruPron": "Shtorm",
+        "ptPron": "Tempestade",
+        "emoji": "⛈️"
+      },
+      {
+        "en": "Fog",
+        "ru": "туман",
+        "pt": "névoa",
+        "ruPron": "Tuman",
+        "ptPron": "Nevoa",
+        "emoji": "🌫️"
+      },
+      {
+        "en": "Ice",
+        "ru": "лёд",
+        "pt": "gelo",
+        "ruPron": "Lyod",
+        "ptPron": "Zhelo",
+        "emoji": "🧊"
+      },
+      {
+        "en": "Puddle",
+        "ru": "лужа",
+        "pt": "poça",
+        "ruPron": "Luzha",
+        "ptPron": "Posa",
+        "emoji": "💧"
       }
     ],
     "hard": [
@@ -3063,6 +5831,38 @@ const WORDS = {
         "ruPron": "Urozhay",
         "ptPron": "Colyeita",
         "emoji": "🌾"
+      },
+      {
+        "en": "Hail",
+        "ru": "град",
+        "pt": "granizo",
+        "ruPron": "Grad",
+        "ptPron": "Granizo",
+        "emoji": "🧊"
+      },
+      {
+        "en": "Humidity",
+        "ru": "влажность",
+        "pt": "umidade",
+        "ruPron": "Vlazhnost",
+        "ptPron": "Umidade",
+        "emoji": "💦"
+      },
+      {
+        "en": "Heatwave",
+        "ru": "жара",
+        "pt": "onda de calor",
+        "ruPron": "Zhara",
+        "ptPron": "Onda de calor",
+        "emoji": "🥵"
+      },
+      {
+        "en": "Overcast",
+        "ru": "пасмурно",
+        "pt": "nublado",
+        "ruPron": "Pasmurno",
+        "ptPron": "Nublado",
+        "emoji": "☁️"
       }
     ],
     "insane": [
@@ -3097,6 +5897,38 @@ const WORDS = {
         "ruPron": "Musson",
         "ptPron": "Monsowng",
         "emoji": "🌩️"
+      },
+      {
+        "en": "Precipitation",
+        "ru": "осадки",
+        "pt": "precipitação",
+        "ruPron": "Osadki",
+        "ptPron": "Precipitasowng",
+        "emoji": "🌧️"
+      },
+      {
+        "en": "Cyclone",
+        "ru": "циклон",
+        "pt": "ciclone",
+        "ruPron": "Tsiklon",
+        "ptPron": "Ciclone",
+        "emoji": "🌀"
+      },
+      {
+        "en": "Permafrost",
+        "ru": "вечная мерзлота",
+        "pt": "permafrost",
+        "ruPron": "Vechnaya merzlota",
+        "ptPron": "Permafrost",
+        "emoji": "🧊"
+      },
+      {
+        "en": "Aurora",
+        "ru": "полярное сияние",
+        "pt": "aurora boreal",
+        "ruPron": "Polyarnoye siyaniye",
+        "ptPron": "Aurora boreal",
+        "emoji": "🌌"
       }
     ]
   },
@@ -3165,6 +5997,70 @@ const WORDS = {
         "ruPron": "Lyzhi",
         "ptPron": "Eski",
         "emoji": "⛷️"
+      },
+      {
+        "en": "Chess",
+        "ru": "шахматы",
+        "pt": "xadrez",
+        "ruPron": "Shakhmaty",
+        "ptPron": "Shadrez",
+        "emoji": "♟️"
+      },
+      {
+        "en": "Yoga",
+        "ru": "йога",
+        "pt": "ioga",
+        "ruPron": "Yoga",
+        "ptPron": "Ioga",
+        "emoji": "🧘"
+      },
+      {
+        "en": "Darts",
+        "ru": "дартс",
+        "pt": "dardos",
+        "ruPron": "Darts",
+        "ptPron": "Dardos",
+        "emoji": "🎯"
+      },
+      {
+        "en": "Bowling",
+        "ru": "боулинг",
+        "pt": "boliche",
+        "ruPron": "Bouling",
+        "ptPron": "Bolishe",
+        "emoji": "🎳"
+      },
+      {
+        "en": "Surfing",
+        "ru": "сёрфинг",
+        "pt": "surfe",
+        "ruPron": "Syorfing",
+        "ptPron": "Surfe",
+        "emoji": "🏄"
+      },
+      {
+        "en": "Karate",
+        "ru": "карате",
+        "pt": "caratê",
+        "ruPron": "Karate",
+        "ptPron": "Carate",
+        "emoji": "🥋"
+      },
+      {
+        "en": "Judo",
+        "ru": "дзюдо",
+        "pt": "judô",
+        "ruPron": "Dzyudo",
+        "ptPron": "Zhudo",
+        "emoji": "🥋"
+      },
+      {
+        "en": "Climbing",
+        "ru": "скалолазание",
+        "pt": "escalada",
+        "ruPron": "Skalolazaniye",
+        "ptPron": "Escalada",
+        "emoji": "🧗"
       }
     ],
     "medium": [
@@ -3231,6 +6127,70 @@ const WORDS = {
         "ruPron": "Gandbol",
         "ptPron": "Handebol",
         "emoji": "🤾"
+      },
+      {
+        "en": "Taekwondo",
+        "ru": "тхэквондо",
+        "pt": "taekwondo",
+        "ruPron": "Tkhekvondo",
+        "ptPron": "Taekwondo",
+        "emoji": "🥋"
+      },
+      {
+        "en": "Rugby",
+        "ru": "регби",
+        "pt": "rugby",
+        "ruPron": "Regbi",
+        "ptPron": "Hugby",
+        "emoji": "🏉"
+      },
+      {
+        "en": "Baseball",
+        "ru": "бейсбол",
+        "pt": "beisebol",
+        "ruPron": "Beysbol",
+        "ptPron": "Beisebol",
+        "emoji": "⚾"
+      },
+      {
+        "en": "Cricket",
+        "ru": "крикет",
+        "pt": "críquete",
+        "ruPron": "Kriket",
+        "ptPron": "Crikete",
+        "emoji": "🏏"
+      },
+      {
+        "en": "Squash",
+        "ru": "сквош",
+        "pt": "squash",
+        "ruPron": "Skvosh",
+        "ptPron": "Squash",
+        "emoji": "🎾"
+      },
+      {
+        "en": "Water polo",
+        "ru": "водное поло",
+        "pt": "polo aquático",
+        "ruPron": "Vodnoye polo",
+        "ptPron": "Polo aquatico",
+        "emoji": "🤽"
+      },
+      {
+        "en": "Triathlon",
+        "ru": "триатлон",
+        "pt": "triatlo",
+        "ruPron": "Triatlon",
+        "ptPron": "Triatlo",
+        "emoji": "🏊"
+      },
+      {
+        "en": "Motorsport",
+        "ru": "автоспорт",
+        "pt": "automobilismo",
+        "ruPron": "Avtosport",
+        "ptPron": "Automobilismo",
+        "emoji": "🏎️"
       }
     ],
     "hard": [
@@ -3297,6 +6257,70 @@ const WORDS = {
         "ruPron": "Parusnyy sport",
         "ptPron": "Vela",
         "emoji": "⛵"
+      },
+      {
+        "en": "Parkour",
+        "ru": "паркур",
+        "pt": "parkour",
+        "ruPron": "Parkur",
+        "ptPron": "Parkour",
+        "emoji": "🏃"
+      },
+      {
+        "en": "Kickboxing",
+        "ru": "кикбоксинг",
+        "pt": "kickboxing",
+        "ruPron": "Kikboksing",
+        "ptPron": "Kickboshing",
+        "emoji": "🥊"
+      },
+      {
+        "en": "Aikido",
+        "ru": "айкидо",
+        "pt": "aikido",
+        "ruPron": "Aykido",
+        "ptPron": "Aikido",
+        "emoji": "🥋"
+      },
+      {
+        "en": "Sumo",
+        "ru": "сумо",
+        "pt": "sumô",
+        "ruPron": "Sumo",
+        "ptPron": "Sumo",
+        "emoji": "🤼"
+      },
+      {
+        "en": "Polo",
+        "ru": "поло",
+        "pt": "polo",
+        "ruPron": "Polo",
+        "ptPron": "Polo",
+        "emoji": "🐎"
+      },
+      {
+        "en": "Lacrosse",
+        "ru": "лакросс",
+        "pt": "lacrosse",
+        "ruPron": "Lakross",
+        "ptPron": "Lacrosse",
+        "emoji": "🥍"
+      },
+      {
+        "en": "Bocce",
+        "ru": "боча",
+        "pt": "bocha",
+        "ruPron": "Bocha",
+        "ptPron": "Bosha",
+        "emoji": "⚪"
+      },
+      {
+        "en": "Windsurfing",
+        "ru": "виндсёрфинг",
+        "pt": "windsurf",
+        "ruPron": "Vindsyorfing",
+        "ptPron": "Windsurf",
+        "emoji": "🏄"
       }
     ],
     "insane": [
@@ -3363,6 +6387,70 @@ const WORDS = {
         "ruPron": "Konkur",
         "ptPron": "Hipismo",
         "emoji": "🐴"
+      },
+      {
+        "en": "Orienteering",
+        "ru": "спортивное ориентирование",
+        "pt": "corrida de orientação",
+        "ruPron": "Sportivnoye oriyentirovaniye",
+        "ptPron": "Cohida de orientasowng",
+        "emoji": "🧭"
+      },
+      {
+        "en": "Speedway",
+        "ru": "спидвей",
+        "pt": "speedway",
+        "ruPron": "Spidvey",
+        "ptPron": "Speedway",
+        "emoji": "🏍️"
+      },
+      {
+        "en": "Netball",
+        "ru": "нетбол",
+        "pt": "netball",
+        "ruPron": "Netbol",
+        "ptPron": "Netball",
+        "emoji": "🏐"
+      },
+      {
+        "en": "Cross-country skiing",
+        "ru": "лыжные гонки",
+        "pt": "esqui cross-country",
+        "ruPron": "Lyzhnyye gonki",
+        "ptPron": "Eski cross-country",
+        "emoji": "⛷️"
+      },
+      {
+        "en": "Ultramarathon",
+        "ru": "ультрамарафон",
+        "pt": "ultramaratona",
+        "ruPron": "Ultramarafon",
+        "ptPron": "Ultramaratona",
+        "emoji": "🏃"
+      },
+      {
+        "en": "Skeleton",
+        "ru": "скелетон",
+        "pt": "skeleton",
+        "ruPron": "Skeleton",
+        "ptPron": "Skeleton",
+        "emoji": "🛷"
+      },
+      {
+        "en": "Luge",
+        "ru": "санный спорт",
+        "pt": "luge",
+        "ruPron": "Sannyy sport",
+        "ptPron": "Luzhe",
+        "emoji": "🛷"
+      },
+      {
+        "en": "Rhythmic gymnastics",
+        "ru": "художественная гимнастика",
+        "pt": "ginástica rítmica",
+        "ruPron": "Khudozhestvennaya gimnastika",
+        "ptPron": "Zhinastica ritmica",
+        "emoji": "🎀"
       }
     ]
   },
@@ -3431,6 +6519,70 @@ const WORDS = {
         "ruPron": "Klubnika",
         "ptPron": "Morango",
         "emoji": "🍓"
+      },
+      {
+        "en": "Tangerine",
+        "ru": "мандарин",
+        "pt": "tangerina",
+        "ruPron": "Mandarin",
+        "ptPron": "Tanzherina",
+        "emoji": "🍊"
+      },
+      {
+        "en": "Grapefruit",
+        "ru": "грейпфрут",
+        "pt": "toranja",
+        "ruPron": "Greypfrut",
+        "ptPron": "Toranzha",
+        "emoji": "🍊"
+      },
+      {
+        "en": "Nectarine",
+        "ru": "нектарин",
+        "pt": "nectarina",
+        "ruPron": "Nektarin",
+        "ptPron": "Nectarina",
+        "emoji": "🍑"
+      },
+      {
+        "en": "Avocado",
+        "ru": "авокадо",
+        "pt": "abacate",
+        "ruPron": "Avokado",
+        "ptPron": "Abacate",
+        "emoji": "🥑"
+      },
+      {
+        "en": "Clementine",
+        "ru": "клементин",
+        "pt": "clementina",
+        "ruPron": "Klementin",
+        "ptPron": "Clementina",
+        "emoji": "🍊"
+      },
+      {
+        "en": "Date",
+        "ru": "финик",
+        "pt": "tâmara",
+        "ruPron": "Finik",
+        "ptPron": "Tamara",
+        "emoji": "🌴"
+      },
+      {
+        "en": "Pomelo",
+        "ru": "помело",
+        "pt": "pomelo",
+        "ruPron": "Pomelo",
+        "ptPron": "Pomelo",
+        "emoji": "🍈"
+      },
+      {
+        "en": "Cantaloupe",
+        "ru": "дыня канталупа",
+        "pt": "melão cantalupo",
+        "ruPron": "Dynya kantalupa",
+        "ptPron": "Melowng cantalupo",
+        "emoji": "🍈"
       }
     ],
     "medium": [
@@ -3497,6 +6649,70 @@ const WORDS = {
         "ruPron": "Abrikos",
         "ptPron": "Damasco",
         "emoji": "🍑"
+      },
+      {
+        "en": "Starfruit",
+        "ru": "карамбола",
+        "pt": "carambola",
+        "ruPron": "Karambola",
+        "ptPron": "Carambola",
+        "emoji": "⭐"
+      },
+      {
+        "en": "Mulberry",
+        "ru": "шелковица",
+        "pt": "amora-preta",
+        "ruPron": "Shelkovitsa",
+        "ptPron": "Amora-preta",
+        "emoji": "🫐"
+      },
+      {
+        "en": "Elderberry",
+        "ru": "бузина",
+        "pt": "sabugueiro",
+        "ruPron": "Buzina",
+        "ptPron": "Sabuzheiro",
+        "emoji": "🫐"
+      },
+      {
+        "en": "Cranberry",
+        "ru": "клюква",
+        "pt": "oxicoco",
+        "ruPron": "Klyukva",
+        "ptPron": "Oshicoco",
+        "emoji": "🔴"
+      },
+      {
+        "en": "Tamarind",
+        "ru": "тамаринд",
+        "pt": "tamarindo",
+        "ruPron": "Tamarind",
+        "ptPron": "Tamarindo",
+        "emoji": "🟤"
+      },
+      {
+        "en": "Loquat",
+        "ru": "мушмула",
+        "pt": "nêspera",
+        "ruPron": "Mushmula",
+        "ptPron": "Nespera",
+        "emoji": "🟠"
+      },
+      {
+        "en": "Physalis",
+        "ru": "физалис",
+        "pt": "physalis",
+        "ruPron": "Fizalis",
+        "ptPron": "Physalis",
+        "emoji": "🟠"
+      },
+      {
+        "en": "Rhubarb",
+        "ru": "ревень",
+        "pt": "ruibarbo",
+        "ruPron": "Reven",
+        "ptPron": "Huibarbo",
+        "emoji": "🌿"
       }
     ],
     "hard": [
@@ -3563,6 +6779,70 @@ const WORDS = {
         "ruPron": "Kokos",
         "ptPron": "Coco",
         "emoji": "🥥"
+      },
+      {
+        "en": "Durian",
+        "ru": "дуриан",
+        "pt": "durian",
+        "ruPron": "Durian",
+        "ptPron": "Durian",
+        "emoji": "🟢"
+      },
+      {
+        "en": "Jackfruit",
+        "ru": "джекфрут",
+        "pt": "jaca",
+        "ruPron": "Dzhekfrut",
+        "ptPron": "Zhaca",
+        "emoji": "🟢"
+      },
+      {
+        "en": "Mangosteen",
+        "ru": "мангустин",
+        "pt": "mangostão",
+        "ruPron": "Mangustin",
+        "ptPron": "Mangostowng",
+        "emoji": "🟣"
+      },
+      {
+        "en": "Kumquat",
+        "ru": "кумкват",
+        "pt": "kumquat",
+        "ruPron": "Kumkvat",
+        "ptPron": "Kumquat",
+        "emoji": "🟠"
+      },
+      {
+        "en": "Longan",
+        "ru": "лонган",
+        "pt": "longan",
+        "ruPron": "Longan",
+        "ptPron": "Longan",
+        "emoji": "🟤"
+      },
+      {
+        "en": "Cherimoya",
+        "ru": "черимойя",
+        "pt": "cherimoia",
+        "ruPron": "Cherimoyya",
+        "ptPron": "Sherimoia",
+        "emoji": "🟢"
+      },
+      {
+        "en": "Breadfruit",
+        "ru": "хлебное дерево",
+        "pt": "fruta-pão",
+        "ruPron": "Khlebnoye derevo",
+        "ptPron": "Fruta-powng",
+        "emoji": "🌳"
+      },
+      {
+        "en": "Sour cherry",
+        "ru": "кислая вишня",
+        "pt": "ginja",
+        "ruPron": "Kislaya vishnya",
+        "ptPron": "Zhinzha",
+        "emoji": "🍒"
       }
     ],
     "insane": [
@@ -3629,6 +6909,70 @@ const WORDS = {
         "ruPron": "Drakoniy frukt",
         "ptPron": "Pitaia",
         "emoji": "🐉"
+      },
+      {
+        "en": "Ackee",
+        "ru": "акки",
+        "pt": "ackee",
+        "ruPron": "Akki",
+        "ptPron": "Ackee",
+        "emoji": "🟡"
+      },
+      {
+        "en": "Rambutan",
+        "ru": "рамбутан",
+        "pt": "rambutan",
+        "ruPron": "Rambutan",
+        "ptPron": "Hambutan",
+        "emoji": "🔴"
+      },
+      {
+        "en": "Salak",
+        "ru": "салак",
+        "pt": "salak",
+        "ruPron": "Salak",
+        "ptPron": "Salak",
+        "emoji": "🟤"
+      },
+      {
+        "en": "Jabuticaba",
+        "ru": "жаботикаба",
+        "pt": "jabuticaba",
+        "ruPron": "Zhabotikaba",
+        "ptPron": "Zhabuticaba",
+        "emoji": "🟣"
+      },
+      {
+        "en": "Cupuacu",
+        "ru": "купуасу",
+        "pt": "cupuaçu",
+        "ruPron": "Kupuasu",
+        "ptPron": "Cupuasu",
+        "emoji": "🟤"
+      },
+      {
+        "en": "Soursop",
+        "ru": "гуанабана",
+        "pt": "graviola",
+        "ruPron": "Guanabana",
+        "ptPron": "Graviola",
+        "emoji": "🟢"
+      },
+      {
+        "en": "Mamey",
+        "ru": "мамей",
+        "pt": "mamey",
+        "ruPron": "Mamey",
+        "ptPron": "Mamey",
+        "emoji": "🟠"
+      },
+      {
+        "en": "Buddha's hand",
+        "ru": "рука будды",
+        "pt": "mão-de-buda",
+        "ruPron": "Ruka buddy",
+        "ptPron": "Mowng-de-buda",
+        "emoji": "🍋"
       }
     ]
   },
@@ -3697,6 +7041,70 @@ const WORDS = {
         "ruPron": "Chesnok",
         "ptPron": "Alyo",
         "emoji": "🧄"
+      },
+      {
+        "en": "Lettuce",
+        "ru": "салат-латук",
+        "pt": "alface",
+        "ruPron": "Salat-latuk",
+        "ptPron": "Alface",
+        "emoji": "🥬"
+      },
+      {
+        "en": "Mushroom",
+        "ru": "гриб",
+        "pt": "cogumelo",
+        "ruPron": "Grib",
+        "ptPron": "Cogumelo",
+        "emoji": "🍄"
+      },
+      {
+        "en": "Green beans",
+        "ru": "зелёная фасоль",
+        "pt": "vagem",
+        "ruPron": "Zelyonaya fasol",
+        "ptPron": "Vazhem",
+        "emoji": "🫛"
+      },
+      {
+        "en": "Peas",
+        "ru": "горошек",
+        "pt": "ervilha",
+        "ruPron": "Goroshek",
+        "ptPron": "Ervilya",
+        "emoji": "🟢"
+      },
+      {
+        "en": "Sweet potato",
+        "ru": "батат",
+        "pt": "batata-doce",
+        "ruPron": "Batat",
+        "ptPron": "Batata-doce",
+        "emoji": "🍠"
+      },
+      {
+        "en": "Chili pepper",
+        "ru": "острый перец",
+        "pt": "pimenta",
+        "ruPron": "Ostryy perets",
+        "ptPron": "Pimenta",
+        "emoji": "🌶️"
+      },
+      {
+        "en": "Ginger",
+        "ru": "имбирь",
+        "pt": "gengibre",
+        "ruPron": "Imbir",
+        "ptPron": "Zhenzhibre",
+        "emoji": "🫚"
+      },
+      {
+        "en": "Scallion",
+        "ru": "зелёный лук",
+        "pt": "cebolinha",
+        "ruPron": "Zelyonyy luk",
+        "ptPron": "Cebolinya",
+        "emoji": "🌱"
       }
     ],
     "medium": [
@@ -3763,6 +7171,70 @@ const WORDS = {
         "ruPron": "Redis",
         "ptPron": "Habanete",
         "emoji": "🔴"
+      },
+      {
+        "en": "Beans",
+        "ru": "фасоль",
+        "pt": "feijão",
+        "ruPron": "Fasol",
+        "ptPron": "Feizhowng",
+        "emoji": "🫘"
+      },
+      {
+        "en": "Lentils",
+        "ru": "чечевица",
+        "pt": "lentilha",
+        "ruPron": "Chechevitsa",
+        "ptPron": "Lentilya",
+        "emoji": "🟤"
+      },
+      {
+        "en": "Chickpeas",
+        "ru": "нут",
+        "pt": "grão-de-bico",
+        "ruPron": "Nut",
+        "ptPron": "Growng-de-bico",
+        "emoji": "🟡"
+      },
+      {
+        "en": "Bamboo shoots",
+        "ru": "побеги бамбука",
+        "pt": "broto de bambu",
+        "ruPron": "Pobegi bambuka",
+        "ptPron": "Broto de bambu",
+        "emoji": "🎋"
+      },
+      {
+        "en": "Bean sprouts",
+        "ru": "ростки фасоли",
+        "pt": "broto de feijão",
+        "ruPron": "Rostki fasoli",
+        "ptPron": "Broto de feizhowng",
+        "emoji": "🌱"
+      },
+      {
+        "en": "Water chestnut",
+        "ru": "водяной орех",
+        "pt": "castanha-de-água",
+        "ruPron": "Vodyanoy orekh",
+        "ptPron": "Castanya-de-agua",
+        "emoji": "🌰"
+      },
+      {
+        "en": "Taro",
+        "ru": "таро",
+        "pt": "taro",
+        "ruPron": "Taro",
+        "ptPron": "Taro",
+        "emoji": "🍠"
+      },
+      {
+        "en": "Yam",
+        "ru": "ямс",
+        "pt": "inhame",
+        "ruPron": "Yams",
+        "ptPron": "Inyame",
+        "emoji": "🍠"
       }
     ],
     "hard": [
@@ -3829,6 +7301,70 @@ const WORDS = {
         "ruPron": "Kudryavaya kapusta",
         "ptPron": "Couve",
         "emoji": "🥬"
+      },
+      {
+        "en": "Jicama",
+        "ru": "хикама",
+        "pt": "jicama",
+        "ruPron": "Khikama",
+        "ptPron": "Zhicama",
+        "emoji": "🥔"
+      },
+      {
+        "en": "Daikon",
+        "ru": "дайкон",
+        "pt": "rabanete-japonês",
+        "ruPron": "Daykon",
+        "ptPron": "Habanete-zhapones",
+        "emoji": "⚪"
+      },
+      {
+        "en": "Bok choy",
+        "ru": "бок-чой",
+        "pt": "couve-chinesa",
+        "ruPron": "Bok-choy",
+        "ptPron": "Couve-shinesa",
+        "emoji": "🥬"
+      },
+      {
+        "en": "Endive",
+        "ru": "эндивий",
+        "pt": "endívia",
+        "ruPron": "Endiviy",
+        "ptPron": "Endivia",
+        "emoji": "🥬"
+      },
+      {
+        "en": "Radicchio",
+        "ru": "радиккио",
+        "pt": "radicchio",
+        "ruPron": "Radikkio",
+        "ptPron": "Hadicshio",
+        "emoji": "🥬"
+      },
+      {
+        "en": "Sorrel",
+        "ru": "щавель",
+        "pt": "azedinha",
+        "ruPron": "Shchavel",
+        "ptPron": "Azedinya",
+        "emoji": "🌿"
+      },
+      {
+        "en": "Nettle",
+        "ru": "крапива",
+        "pt": "urtiga",
+        "ruPron": "Krapiva",
+        "ptPron": "Urtiga",
+        "emoji": "🌿"
+      },
+      {
+        "en": "Purslane",
+        "ru": "портулак",
+        "pt": "beldroega",
+        "ruPron": "Portulak",
+        "ptPron": "Beldroega",
+        "emoji": "🌿"
       }
     ],
     "insane": [
@@ -3895,6 +7431,70 @@ const WORDS = {
         "ruPron": "Khren",
         "ptPron": "Haiz-forte",
         "emoji": "⚪"
+      },
+      {
+        "en": "Salsify",
+        "ru": "козлобородник",
+        "pt": "salsifi",
+        "ruPron": "Kozloborodnik",
+        "ptPron": "Salsifi",
+        "emoji": "🥕"
+      },
+      {
+        "en": "Chayote",
+        "ru": "чайот",
+        "pt": "chuchu",
+        "ruPron": "Chayot",
+        "ptPron": "Shushu",
+        "emoji": "🟢"
+      },
+      {
+        "en": "Cardoon",
+        "ru": "кардон",
+        "pt": "cardo",
+        "ruPron": "Kardon",
+        "ptPron": "Cardo",
+        "emoji": "🌿"
+      },
+      {
+        "en": "Galangal",
+        "ru": "галангал",
+        "pt": "galanga",
+        "ruPron": "Galangal",
+        "ptPron": "Galanga",
+        "emoji": "🫚"
+      },
+      {
+        "en": "Wasabi",
+        "ru": "васаби",
+        "pt": "wasabi",
+        "ruPron": "Vasabi",
+        "ptPron": "Wasabi",
+        "emoji": "🟢"
+      },
+      {
+        "en": "Yuca",
+        "ru": "маниока",
+        "pt": "mandioca",
+        "ruPron": "Manioka",
+        "ptPron": "Mandioca",
+        "emoji": "🥔"
+      },
+      {
+        "en": "Celeriac",
+        "ru": "сельдерей корневой",
+        "pt": "aipo-rábano",
+        "ruPron": "Selderey kornevoy",
+        "ptPron": "Aipo-rabano",
+        "emoji": "🥔"
+      },
+      {
+        "en": "Water spinach",
+        "ru": "водяной шпинат",
+        "pt": "espinafre-d'água",
+        "ruPron": "Vodyanoy shpinat",
+        "ptPron": "Espinafre-d'agua",
+        "emoji": "🥬"
       }
     ]
   },
@@ -3931,6 +7531,38 @@ const WORDS = {
         "ruPron": "Chetverg",
         "ptPron": "Kinta-feira",
         "emoji": "📅"
+      },
+      {
+        "en": "Week",
+        "ru": "неделя",
+        "pt": "semana",
+        "ruPron": "Nedelya",
+        "ptPron": "Semana",
+        "emoji": "📅"
+      },
+      {
+        "en": "Month",
+        "ru": "месяц",
+        "pt": "mês",
+        "ruPron": "Mesyats",
+        "ptPron": "Mes",
+        "emoji": "📆"
+      },
+      {
+        "en": "Year",
+        "ru": "год",
+        "pt": "ano",
+        "ruPron": "God",
+        "ptPron": "Ano",
+        "emoji": "🗓️"
+      },
+      {
+        "en": "Date",
+        "ru": "дата",
+        "pt": "data",
+        "ruPron": "Data",
+        "ptPron": "Data",
+        "emoji": "📅"
       }
     ],
     "medium": [
@@ -3965,6 +7597,38 @@ const WORDS = {
         "ruPron": "Vykhodnyye",
         "ptPron": "Fim de semana",
         "emoji": "🎉"
+      },
+      {
+        "en": "Morning",
+        "ru": "утро",
+        "pt": "manhã",
+        "ruPron": "Utro",
+        "ptPron": "Manyang",
+        "emoji": "🌅"
+      },
+      {
+        "en": "Afternoon",
+        "ru": "день",
+        "pt": "tarde",
+        "ruPron": "Den",
+        "ptPron": "Tarde",
+        "emoji": "🌇"
+      },
+      {
+        "en": "Evening",
+        "ru": "вечер",
+        "pt": "noite",
+        "ruPron": "Vecher",
+        "ptPron": "Noite",
+        "emoji": "🌆"
+      },
+      {
+        "en": "Midnight",
+        "ru": "полночь",
+        "pt": "meia-noite",
+        "ruPron": "Polnoch",
+        "ptPron": "Meia-noite",
+        "emoji": "🌃"
       }
     ],
     "hard": [
@@ -3999,6 +7663,38 @@ const WORDS = {
         "ruPron": "Segodnya vecherom",
         "ptPron": "Hozhe à noite",
         "emoji": "🌙"
+      },
+      {
+        "en": "Noon",
+        "ru": "полдень",
+        "pt": "meio-dia",
+        "ruPron": "Polden",
+        "ptPron": "Meio-dia",
+        "emoji": "🌞"
+      },
+      {
+        "en": "Dawn",
+        "ru": "рассвет",
+        "pt": "amanhecer",
+        "ruPron": "Rassvet",
+        "ptPron": "Amanyecer",
+        "emoji": "🌄"
+      },
+      {
+        "en": "Dusk",
+        "ru": "сумерки",
+        "pt": "crepúsculo",
+        "ruPron": "Sumerki",
+        "ptPron": "Crepusculo",
+        "emoji": "🌆"
+      },
+      {
+        "en": "Century",
+        "ru": "век",
+        "pt": "século",
+        "ruPron": "Vek",
+        "ptPron": "Seculo",
+        "emoji": "🏛️"
       }
     ],
     "insane": [
@@ -4032,6 +7728,38 @@ const WORDS = {
         "pt": "feriado nacional",
         "ruPron": "Gosudarstvennyy prazdnik",
         "ptPron": "Feriado nacional",
+        "emoji": "🎊"
+      },
+      {
+        "en": "Decade",
+        "ru": "десятилетие",
+        "pt": "década",
+        "ruPron": "Desyatiletiye",
+        "ptPron": "Decada",
+        "emoji": "🗓️"
+      },
+      {
+        "en": "Millennium",
+        "ru": "тысячелетие",
+        "pt": "milênio",
+        "ruPron": "Tysyacheletiye",
+        "ptPron": "Milenio",
+        "emoji": "⏳"
+      },
+      {
+        "en": "Leap year",
+        "ru": "високосный год",
+        "pt": "ano bissexto",
+        "ruPron": "Visokosnyy god",
+        "ptPron": "Ano bisseshto",
+        "emoji": "🗓️"
+      },
+      {
+        "en": "Anniversary",
+        "ru": "годовщина",
+        "pt": "aniversário",
+        "ruPron": "Godovshchina",
+        "ptPron": "Aniversario",
         "emoji": "🎊"
       }
     ]

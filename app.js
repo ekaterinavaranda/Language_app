@@ -5,6 +5,7 @@
   const CHOICES_PER_QUESTION = 4;
   const CELEBRATION_THRESHOLD = 7;
   const LAST_NAME_KEY = "happyLearningLastName";
+  const RECENT_WORDS_KEY = "happyLearningRecentWords";
 
   const state = {
     playerName: "",
@@ -40,11 +41,17 @@
 
   function speak(text, lang) {
     if (!("speechSynthesis" in window)) return;
+    // Chrome can silently drop an utterance if speak() is called in the same
+    // tick as cancel(), and can also need a resume() after being idle — both
+    // are worked around here so repeat clicks reliably replay the audio.
     window.speechSynthesis.cancel();
-    const utter = new SpeechSynthesisUtterance(text);
-    utter.lang = SPEECH_LANG[lang];
-    utter.rate = 0.9;
-    window.speechSynthesis.speak(utter);
+    setTimeout(() => {
+      const utter = new SpeechSynthesisUtterance(text);
+      utter.lang = SPEECH_LANG[lang];
+      utter.rate = 0.9;
+      window.speechSynthesis.resume();
+      window.speechSynthesis.speak(utter);
+    }, 50);
   }
 
   function capitalize(s) {
@@ -79,15 +86,40 @@
     });
   }
 
-  // Builds N unique correct words: primary level pool first, then fills
-  // from the rest of the category (still unique) if the level is too small.
+  function getRecentWords(category, level) {
+    try {
+      const all = JSON.parse(localStorage.getItem(RECENT_WORDS_KEY) || "{}");
+      return new Set(all[`${category}:${level}`] || []);
+    } catch (e) {
+      return new Set();
+    }
+  }
+
+  function saveRecentWords(category, level, words) {
+    try {
+      const all = JSON.parse(localStorage.getItem(RECENT_WORDS_KEY) || "{}");
+      all[`${category}:${level}`] = words;
+      localStorage.setItem(RECENT_WORDS_KEY, JSON.stringify(all));
+    } catch (e) {
+      // localStorage unavailable — not fresh-word tracking isn't essential, skip silently
+    }
+  }
+
+  // Builds N unique correct words, preferring ones NOT shown in this
+  // player's immediately previous quiz for the same category+level (so
+  // back-to-back replays don't just repeat the same words). Falls back to
+  // reusing recent words only when the pool is too small to avoid them.
   function buildUniqueWordList(category, level, count) {
-    const primaryPool = shuffle(WORDS[category][level]);
+    const recent = getRecentWords(category, level);
+    const primaryPool = WORDS[category][level];
     const fullPool = getAllCategoryWords(category);
+
+    const rank = (w) => (recent.has(w.en) ? 1 : 0); // fresh words first
+    const orderedPrimary = shuffle(primaryPool).sort((a, b) => rank(a) - rank(b));
+
     const used = new Set();
     const result = [];
-
-    for (const w of primaryPool) {
+    for (const w of orderedPrimary) {
       if (result.length >= count) break;
       if (!used.has(w.en)) {
         used.add(w.en);
@@ -95,13 +127,15 @@
       }
     }
     if (result.length < count) {
-      const rest = shuffle(fullPool.filter((w) => !used.has(w.en)));
+      const rest = shuffle(fullPool.filter((w) => !used.has(w.en))).sort((a, b) => rank(a) - rank(b));
       for (const w of rest) {
         if (result.length >= count) break;
         used.add(w.en);
         result.push(w);
       }
     }
+
+    saveRecentWords(category, level, result.map((w) => w.en));
     return result;
   }
 
@@ -148,9 +182,11 @@
         : `<span class="answer-emoji">${choice.word.emoji || "🔤"}</span>`;
 
       btn.innerHTML = `
-        ${pictureHtml}
-        <span class="answer-text">${text}</span>
-        <span class="answer-pron">[${pron}]</span>
+        <span class="answer-picture">${pictureHtml}</span>
+        <span class="answer-lines">
+          <span class="answer-text">${text}</span>
+          <span class="answer-pron">[${pron}]</span>
+        </span>
       `;
       btn.addEventListener("click", () => handleAnswer(btn, choice));
       grid.appendChild(btn);
