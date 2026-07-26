@@ -9,7 +9,7 @@ Learn Russian & Portuguese vocabulary through quick multiple-choice quizzes, wit
 3. Pick a difficulty: Easy, Medium, Hard, or Insane.
 4. Pick a category: Animals, Colors, Food, Verbs, and more.
 5. Answer 10 multiple-choice questions — each answer shows a picture, the word, and an approximate pronunciation guide, and is spoken aloud when clicked.
-6. See your score at the end. Score 7+ triggers a confetti celebration. Your best score per name is saved to a leaderboard shared across every device and session.
+6. See your score at the end. Score 7+ triggers a confetti celebration. Every attempt is logged to a leaderboard shared across every device and session, which shows the 10 most recent results from everyone.
 
 ## Running it
 

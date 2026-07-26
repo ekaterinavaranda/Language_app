@@ -285,33 +285,35 @@
     }
   }
 
-  // ---------- Leaderboard (shared across devices via Firestore) ----------
-  function docIdForName(name) {
-    const normalized = name.trim().toLowerCase();
-    const safe = normalized.replace(/[\/.\s#\[\]*~]+/g, "_").slice(0, 200);
-    return { normalized, docId: safe || "player" };
+  // ---------- Leaderboard: last 10 attempts from everyone (shared via Firestore) ----------
+  const RECENT_RESULTS_LIMIT = 10;
+
+  function relativeTime(isoDate) {
+    const diffMs = Date.now() - new Date(isoDate).getTime();
+    const minutes = Math.floor(diffMs / 60000);
+    if (minutes < 1) return "just now";
+    if (minutes < 60) return `${minutes} min ago`;
+    const hours = Math.floor(minutes / 60);
+    if (hours < 24) return `${hours}h ago`;
+    const days = Math.floor(hours / 24);
+    return `${days}d ago`;
   }
 
   async function saveResult(name, score) {
     if (!name) return;
-    const { normalized, docId } = docIdForName(name);
-    const ref = db.collection("leaderboard").doc(docId);
+    const normalized = name.trim().toLowerCase();
 
     try {
-      await db.runTransaction(async (tx) => {
-        const snap = await tx.get(ref);
-        const existing = snap.exists ? snap.data() : null;
-        if (!existing || score > existing.bestScore) {
-          tx.set(ref, {
-            normalized,
-            displayName: name.trim(),
-            bestScore: score,
-            date: new Date().toISOString(),
-            lang: state.lang,
-            level: state.level,
-            category: state.category,
-          });
-        }
+      // Every attempt is logged as its own entry (not merged per player),
+      // so the leaderboard can show the most recent attempts from everyone.
+      await db.collection("leaderboard").add({
+        normalized,
+        displayName: name.trim(),
+        bestScore: score,
+        date: new Date().toISOString(),
+        lang: state.lang,
+        level: state.level,
+        category: state.category,
       });
     } catch (err) {
       console.error("Failed to save leaderboard result:", err);
@@ -326,8 +328,8 @@
     try {
       const snapshot = await db
         .collection("leaderboard")
-        .orderBy("bestScore", "desc")
-        .limit(50)
+        .orderBy("date", "desc")
+        .limit(RECENT_RESULTS_LIMIT)
         .get();
       list = snapshot.docs.map((doc) => doc.data());
     } catch (err) {
@@ -344,19 +346,17 @@
     }
 
     const myName = state.playerName.trim().toLowerCase();
-    const medals = ["🥇", "🥈", "🥉"];
 
     list.forEach((entry, index) => {
       const row = document.createElement("div");
       row.className = "leaderboard-row" + (entry.normalized === myName ? " me" : "");
-      const rank = medals[index] || `#${index + 1}`;
-      const metaParts = [];
+      const metaParts = [relativeTime(entry.date)];
       if (entry.lang) metaParts.push(LANGUAGE_LABELS[entry.lang]);
       if (entry.level) metaParts.push(LEVEL_LABELS[entry.level]);
       if (entry.category) metaParts.push(CATEGORY_LABELS[entry.category]);
 
       row.innerHTML = `
-        <span class="leaderboard-rank">${rank}</span>
+        <span class="leaderboard-rank">#${index + 1}</span>
         <span class="leaderboard-name">${entry.displayName}<br><span class="leaderboard-meta">${metaParts.join(" · ")}</span></span>
         <span class="leaderboard-score">${entry.bestScore}/${QUESTIONS_PER_QUIZ}</span>
       `;
