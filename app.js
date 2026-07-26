@@ -160,15 +160,18 @@
   }
 
   function handleAnswer(button, choice) {
-    if (state.answered) return;
+    if (state.answered) {
+      // Already answered this question: clicking any option just repeats
+      // its pronunciation, without re-scoring or changing the reveal state.
+      speak(choice.word[state.lang], state.lang);
+      return;
+    }
     state.answered = true;
 
-    const pronField = state.lang === "ru" ? "ruPron" : "ptPron";
     speak(choice.word[state.lang], state.lang);
 
     const allButtons = document.querySelectorAll(".answer-btn");
     allButtons.forEach((b) => {
-      b.disabled = true;
       b.classList.add("revealed");
     });
 
@@ -337,6 +340,10 @@
       container.innerHTML = `<p class="leaderboard-empty">Couldn't load the leaderboard. Check your internet connection and try again.</p>`;
       return;
     }
+
+    // The 10 most recent attempts are the pool; within that pool, rank by
+    // score (highest first), breaking ties by most recent.
+    list.sort((a, b) => b.bestScore - a.bestScore || new Date(b.date) - new Date(a.date));
 
     container.innerHTML = "";
 
