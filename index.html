@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Happy Learning — Learn Russian &amp; Portuguese</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="app">
+
+  <!-- SCREEN 0: enter name -->
+  <section id="screen-name" class="screen active">
+    <div class="logo">🎉📚🌍</div>
+    <h1>Happy Learning</h1>
+    <p class="subtitle">Learn Russian &amp; Portuguese the fun way</p>
+    <form id="name-form" class="name-form">
+      <input type="text" id="name-input" placeholder="Enter your name" maxlength="24" autocomplete="off" />
+      <button type="submit" class="primary-btn" id="name-continue-btn">Let's go →</button>
+    </form>
+  </section>
+
+  <!-- SCREEN 1: choose language -->
+  <section id="screen-language" class="screen">
+    <p class="greeting" id="greeting-text"></p>
+    <h1>Which language do you want to study?</h1>
+    <div class="choice-grid two-col">
+      <button class="choice-card" data-lang="ru">
+        <span class="flag">🇷🇺</span>
+        <span>Russian</span>
+      </button>
+      <button class="choice-card" data-lang="pt">
+        <span class="flag">🇵🇹</span>
+        <span>Portuguese</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- SCREEN 2: choose level -->
+  <section id="screen-level" class="screen">
+    <h1>Choose your level</h1>
+    <p class="subtitle">How challenging should it be?</p>
+    <div class="choice-grid two-col">
+      <button class="choice-card" data-level="easy"><span class="card-icon">🙂</span><span>Easy</span></button>
+      <button class="choice-card" data-level="medium"><span class="card-icon">😐</span><span>Medium</span></button>
+      <button class="choice-card" data-level="hard"><span class="card-icon">😅</span><span>Hard</span></button>
+      <button class="choice-card" data-level="insane"><span class="card-icon">🔥</span><span>Insane</span></button>
+    </div>
+    <button class="back-btn" data-back="screen-language">&larr; Back</button>
+  </section>
+
+  <!-- SCREEN 3: choose category -->
+  <section id="screen-category" class="screen">
+    <h1>Choose a category</h1>
+    <p class="subtitle">What do you want to learn?</p>
+    <div class="choice-grid three-col" id="category-grid"></div>
+    <button class="back-btn" data-back="screen-level">&larr; Back</button>
+  </section>
+
+  <!-- SCREEN 4: quiz -->
+  <section id="screen-quiz" class="screen">
+    <div class="quiz-header">
+      <div class="quiz-progress">
+        <span id="quiz-progress-text">Question 1 / 10</span>
+        <div class="progress-bar"><div class="progress-bar-fill" id="progress-bar-fill"></div></div>
+      </div>
+      <div class="quiz-score">⭐ <span id="quiz-score">0</span></div>
+    </div>
+
+    <p class="quiz-instructions">Choose the correct translation for:</p>
+    <h2 class="quiz-word" id="quiz-word">Word</h2>
+
+    <div class="answers-grid" id="answers-grid"></div>
+
+    <button class="next-btn" id="next-btn" disabled>Next &rarr;</button>
+  </section>
+
+  <!-- SCREEN 5: results -->
+  <section id="screen-results" class="screen">
+    <h1>Quiz Complete!</h1>
+    <div class="result-circle">
+      <span id="result-score">0</span><span class="result-total">/10</span>
+    </div>
+    <p class="result-message" id="result-message"></p>
+    <div class="result-buttons">
+      <button class="primary-btn" id="retry-btn">Try Again</button>
+      <button class="secondary-btn" id="leaderboard-btn">🏆 Leaderboard</button>
+      <button class="secondary-btn" id="home-btn">Choose New Topic</button>
+    </div>
+  </section>
+
+  <!-- SCREEN 6: leaderboard -->
+  <section id="screen-leaderboard" class="screen">
+    <h1>🏆 Leaderboard</h1>
+    <p class="subtitle">Best score per player</p>
+    <div class="leaderboard-list" id="leaderboard-list"></div>
+    <button class="primary-btn" id="leaderboard-close-btn">Continue</button>
+  </section>
+
+</div>
+
+<div class="celebration-overlay" id="celebration-overlay"></div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
