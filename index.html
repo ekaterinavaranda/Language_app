@@ -21,9 +21,24 @@
     </form>
   </section>
 
+  <!-- SCREEN 0.5: choose mode -->
+  <section id="screen-mode" class="screen">
+    <p class="greeting" id="greeting-text"></p>
+    <h1>What do you want to do?</h1>
+    <div class="choice-grid two-col">
+      <button class="choice-card" data-mode="learning">
+        <span class="card-icon">📖</span>
+        <span>Learn</span>
+      </button>
+      <button class="choice-card" data-mode="quiz">
+        <span class="card-icon">🎯</span>
+        <span>Quiz</span>
+      </button>
+    </div>
+  </section>
+
   <!-- SCREEN 1: choose language -->
   <section id="screen-language" class="screen">
-    <p class="greeting" id="greeting-text"></p>
     <h1>Which language do you want to study?</h1>
     <div class="choice-grid two-col">
       <button class="choice-card" data-lang="ru">
@@ -35,6 +50,7 @@
         <span>Portuguese</span>
       </button>
     </div>
+    <button class="back-btn" data-back="screen-mode">&larr; Back</button>
   </section>
 
   <!-- SCREEN 2: choose level -->
@@ -75,6 +91,38 @@
     <div class="answers-grid" id="answers-grid"></div>
 
     <button class="next-btn" id="next-btn" disabled>Next &rarr;</button>
+  </section>
+
+  <!-- SCREEN: flashcard learning mode -->
+  <section id="screen-flashcard" class="screen">
+    <div class="quiz-header">
+      <div class="quiz-progress">
+        <span id="flashcard-progress-text">Card 1 / 10</span>
+        <div class="progress-bar"><div class="progress-bar-fill" id="flashcard-progress-fill"></div></div>
+      </div>
+    </div>
+
+    <button class="flashcard" id="flashcard-btn" title="Tap to hear the pronunciation">
+      <span class="flashcard-picture" id="flashcard-picture"></span>
+      <span class="flashcard-en" id="flashcard-en">Word</span>
+      <span class="flashcard-target" id="flashcard-target">Слово</span>
+      <span class="flashcard-pron" id="flashcard-pron">[pron]</span>
+      <span class="flashcard-hint">🔊 Tap the card to hear it</span>
+    </button>
+
+    <button class="mic-btn" id="mic-btn">
+      <span id="mic-icon">🎤</span>
+      <span id="mic-label">Tap and say the word</span>
+    </button>
+
+    <p class="mic-feedback" id="mic-feedback"></p>
+
+    <div class="flashcard-nav">
+      <button class="secondary-btn" id="flashcard-prev-btn">&larr; Previous</button>
+      <button class="primary-btn" id="flashcard-next-btn">Next &rarr;</button>
+    </div>
+
+    <button class="back-btn" data-back="screen-category">&larr; Choose another topic</button>
   </section>
 
   <!-- SCREEN 5: results -->

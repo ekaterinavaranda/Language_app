@@ -9,6 +9,7 @@
 
   const state = {
     playerName: "",
+    mode: null,       // 'learning' | 'quiz'
     lang: null,       // 'ru' | 'pt'
     level: null,      // 'easy' | 'medium' | 'hard' | 'insane'
     category: null,   // key in WORDS
@@ -16,6 +17,8 @@
     currentIndex: 0,
     score: 0,
     answered: false,
+    deck: [],          // flashcard deck (learning mode)
+    deckIndex: 0,
   };
 
   // ---------- Screen navigation ----------
@@ -266,6 +269,184 @@
     renderQuestion();
   }
 
+  // ---------- Learning mode: flashcards ----------
+  function startFlashcards() {
+    state.deck = shuffle(WORDS[state.category][state.level]);
+    state.deckIndex = 0;
+    showScreen("screen-flashcard");
+    renderFlashcard();
+  }
+
+  function renderFlashcard() {
+    const word = state.deck[state.deckIndex];
+    const pronField = state.lang === "ru" ? "ruPron" : "ptPron";
+
+    document.getElementById("flashcard-progress-text").textContent =
+      `Card ${state.deckIndex + 1} / ${state.deck.length}`;
+    document.getElementById("flashcard-progress-fill").style.width =
+      `${(state.deckIndex / state.deck.length) * 100}%`;
+
+    document.getElementById("flashcard-picture").innerHTML = word.swatch
+      ? `<span class="answer-swatch" style="background:${word.swatch}"></span>`
+      : (word.emoji || "🔤");
+    document.getElementById("flashcard-en").textContent = word.en;
+    document.getElementById("flashcard-target").textContent = capitalize(word[state.lang]);
+    document.getElementById("flashcard-pron").textContent = `[${word[pronField]}]`;
+
+    const feedback = document.getElementById("mic-feedback");
+    feedback.textContent = "";
+    feedback.className = "mic-feedback";
+
+    document.getElementById("flashcard-prev-btn").disabled = state.deckIndex === 0;
+    document.getElementById("flashcard-next-btn").textContent =
+      state.deckIndex === state.deck.length - 1 ? "Finish" : "Next →";
+  }
+
+  function playCurrentCard() {
+    const word = state.deck[state.deckIndex];
+    speak(word[state.lang], state.lang);
+  }
+
+  function nextCard() {
+    if (state.deckIndex >= state.deck.length - 1) {
+      showScreen("screen-category");
+      return;
+    }
+    state.deckIndex++;
+    renderFlashcard();
+  }
+
+  function prevCard() {
+    if (state.deckIndex === 0) return;
+    state.deckIndex--;
+    renderFlashcard();
+  }
+
+  // ---------- Pronunciation scoring via the Web Speech API ----------
+  function getSpeechRecognitionCtor() {
+    return window.SpeechRecognition || window.webkitSpeechRecognition || null;
+  }
+
+  function normalizeForCompare(s) {
+    return s
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[̀-ͯ]/g, "")
+      .replace(/[^\p{L}\p{N}\s]/gu, "")
+      .trim();
+  }
+
+  function levenshtein(a, b) {
+    const dp = [];
+    for (let i = 0; i <= a.length; i++) dp.push([i]);
+    for (let j = 1; j <= b.length; j++) dp[0][j] = j;
+    for (let i = 1; i <= a.length; i++) {
+      for (let j = 1; j <= b.length; j++) {
+        dp[i][j] = a[i - 1] === b[j - 1]
+          ? dp[i - 1][j - 1]
+          : 1 + Math.min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]);
+      }
+    }
+    return dp[a.length][b.length];
+  }
+
+  function isCloseMatch(said, target) {
+    const a = normalizeForCompare(said);
+    const b = normalizeForCompare(target);
+    if (!a || !b) return false;
+    if (a === b) return true;
+    const maxLen = Math.max(a.length, b.length);
+    return levenshtein(a, b) <= Math.max(1, Math.floor(maxLen * 0.3));
+  }
+
+  function handleMicClick() {
+    const feedback = document.getElementById("mic-feedback");
+    const micBtn = document.getElementById("mic-btn");
+    const SR = getSpeechRecognitionCtor();
+
+    if (!SR) {
+      feedback.textContent = "Speech recognition isn't supported in this browser. Try Chrome or Edge.";
+      feedback.className = "mic-feedback wrong";
+      return;
+    }
+
+    if (micBtn.classList.contains("listening")) return;
+
+    const word = state.deck[state.deckIndex];
+    const target = word[state.lang];
+    const pronField = state.lang === "ru" ? "ruPron" : "ptPron";
+
+    const recognizer = new SR();
+    recognizer.lang = SPEECH_LANG[state.lang];
+    recognizer.maxAlternatives = 5;
+    recognizer.interimResults = false;
+
+    micBtn.classList.add("listening");
+    feedback.textContent = "Listening…";
+    feedback.className = "mic-feedback";
+
+    // Safety net: if the browser/speech service never fires a result, error,
+    // or end event (observed in some environments), don't leave the button
+    // stuck in "Listening…" forever with no way to retry.
+    const watchdog = setTimeout(() => {
+      try {
+        recognizer.abort();
+      } catch (e) {
+        // ignore
+      }
+      micBtn.classList.remove("listening");
+      feedback.textContent = "No response from the microphone — try again.";
+      feedback.className = "mic-feedback wrong";
+    }, 8000);
+
+    recognizer.onresult = (event) => {
+      clearTimeout(watchdog);
+      const alternatives = event.results[0];
+      let matched = false;
+      let heard = "";
+      for (let i = 0; i < alternatives.length; i++) {
+        if (i === 0) heard = alternatives[i].transcript;
+        if (isCloseMatch(alternatives[i].transcript, target)) {
+          matched = true;
+          break;
+        }
+      }
+      if (matched) {
+        feedback.textContent = "✅ Correct! Well pronounced.";
+        feedback.className = "mic-feedback correct";
+      } else {
+        feedback.innerHTML = `❌ Not quite. You said "${heard}". Correct: <strong>${capitalize(target)}</strong> <em>[${word[pronField]}]</em>`;
+        feedback.className = "mic-feedback wrong";
+        speak(target, state.lang);
+      }
+    };
+
+    recognizer.onerror = (event) => {
+      clearTimeout(watchdog);
+      feedback.textContent =
+        event.error === "not-allowed" || event.error === "permission-denied"
+          ? "Microphone access denied. Please allow microphone permissions and try again."
+          : event.error === "no-speech"
+          ? "Didn't hear anything — try again."
+          : "Something went wrong with the microphone. Try again.";
+      feedback.className = "mic-feedback wrong";
+    };
+
+    recognizer.onend = () => {
+      clearTimeout(watchdog);
+      micBtn.classList.remove("listening");
+    };
+
+    try {
+      recognizer.start();
+    } catch (e) {
+      clearTimeout(watchdog);
+      micBtn.classList.remove("listening");
+      feedback.textContent = "Couldn't start the microphone. Try again.";
+      feedback.className = "mic-feedback wrong";
+    }
+  }
+
   // ---------- Celebration: confetti + fireworks ----------
   function celebrate() {
     const overlay = document.getElementById("celebration-overlay");
@@ -422,7 +603,14 @@
       state.playerName = name;
       localStorage.setItem(LAST_NAME_KEY, name);
       document.getElementById("greeting-text").textContent = `Hi, ${name}! 👋`;
-      showScreen("screen-language");
+      showScreen("screen-mode");
+    });
+
+    document.querySelectorAll("[data-mode]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        state.mode = btn.dataset.mode;
+        showScreen("screen-language");
+      });
     });
 
     document.querySelectorAll("[data-lang]").forEach((btn) => {
@@ -443,7 +631,11 @@
       const btn = e.target.closest("[data-category]");
       if (!btn) return;
       state.category = btn.dataset.category;
-      startQuiz();
+      if (state.mode === "learning") {
+        startFlashcards();
+      } else {
+        startQuiz();
+      }
     });
 
     document.querySelectorAll("[data-back]").forEach((btn) => {
@@ -452,7 +644,12 @@
 
     document.getElementById("next-btn").addEventListener("click", nextQuestion);
     document.getElementById("retry-btn").addEventListener("click", startQuiz);
-    document.getElementById("home-btn").addEventListener("click", () => showScreen("screen-language"));
+    document.getElementById("home-btn").addEventListener("click", () => showScreen("screen-mode"));
+
+    document.getElementById("flashcard-btn").addEventListener("click", playCurrentCard);
+    document.getElementById("flashcard-prev-btn").addEventListener("click", prevCard);
+    document.getElementById("flashcard-next-btn").addEventListener("click", nextCard);
+    document.getElementById("mic-btn").addEventListener("click", handleMicClick);
 
     document.getElementById("leaderboard-btn").addEventListener("click", () => {
       renderLeaderboard();

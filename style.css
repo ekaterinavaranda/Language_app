@@ -406,6 +406,134 @@ h1 {
   color: var(--primary);
 }
 
+/* Flashcard (learning mode) */
+.flashcard {
+  width: 100%;
+  background: var(--card-bg);
+  border: 3px solid var(--border);
+  border-radius: 20px;
+  padding: 36px 24px;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.12s ease, border-color 0.15s ease;
+}
+
+.flashcard:hover {
+  transform: translateY(-2px);
+  border-color: var(--primary);
+}
+
+.flashcard:active {
+  transform: translateY(0);
+}
+
+.flashcard-picture {
+  font-size: 3.5rem;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.flashcard-picture .answer-swatch {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  display: inline-block;
+}
+
+.flashcard-en {
+  color: var(--muted);
+  font-size: 1.2rem;
+}
+
+.flashcard-target {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.flashcard-pron {
+  font-size: 1.25rem;
+  font-style: italic;
+  color: var(--muted);
+}
+
+.flashcard-hint {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.mic-btn {
+  margin-top: 24px;
+  background: var(--card-bg);
+  border: 3px solid var(--border);
+  border-radius: 50px;
+  padding: 16px 32px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text);
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: transform 0.12s ease, border-color 0.15s ease, background 0.15s ease;
+}
+
+.mic-btn #mic-icon {
+  font-size: 1.4rem;
+}
+
+.mic-btn:hover {
+  border-color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.mic-btn.listening {
+  border-color: var(--red);
+  background: var(--red-bg);
+  color: var(--red);
+  animation: mic-pulse 1s ease-in-out infinite;
+}
+
+@keyframes mic-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+  50% { box-shadow: 0 0 0 12px rgba(239, 68, 68, 0); }
+}
+
+.mic-feedback {
+  min-height: 1.6em;
+  margin: 16px 0 0;
+  font-size: 1.1rem;
+  max-width: 100%;
+}
+
+.mic-feedback.correct {
+  color: var(--green);
+  font-weight: 700;
+}
+
+.mic-feedback.wrong {
+  color: var(--red);
+  font-weight: 600;
+}
+
+.flashcard-nav {
+  display: flex;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.flashcard-nav .secondary-btn,
+.flashcard-nav .primary-btn {
+  margin-top: 0;
+}
+
 /* Results screen */
 .result-circle {
   width: 160px;
