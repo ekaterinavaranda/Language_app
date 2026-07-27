@@ -505,8 +505,9 @@
     }
   }
 
-  // ---------- Leaderboard: last 10 attempts from everyone (shared via Firestore) ----------
-  const RECENT_RESULTS_LIMIT = 10;
+  // ---------- Leaderboard: best score per player (shared via Firestore) ----------
+  const LEADERBOARD_TOP_N = 10;
+  const LEADERBOARD_SCAN_LIMIT = 500; // how many top-scoring attempts to scan for unique players
 
   function relativeTime(isoDate) {
     const diffMs = Date.now() - new Date(isoDate).getTime();
@@ -524,8 +525,9 @@
     const normalized = name.trim().toLowerCase();
 
     try {
-      // Every attempt is logged as its own entry (not merged per player),
-      // so the leaderboard can show the most recent attempts from everyone.
+      // Every attempt is logged as its own entry; the leaderboard view reduces
+      // these to each player's single best score at read time (see
+      // renderLeaderboard), rather than merging them here at write time.
       await db.collection("leaderboard").add({
         normalized,
         displayName: name.trim(),
@@ -544,23 +546,31 @@
     const container = document.getElementById("leaderboard-list");
     container.innerHTML = `<p class="leaderboard-empty">Loading leaderboard…</p>`;
 
-    let list;
+    let scanned;
     try {
       const snapshot = await db
         .collection("leaderboard")
-        .orderBy("date", "desc")
-        .limit(RECENT_RESULTS_LIMIT)
+        .orderBy("bestScore", "desc")
+        .limit(LEADERBOARD_SCAN_LIMIT)
         .get();
-      list = snapshot.docs.map((doc) => doc.data());
+      scanned = snapshot.docs.map((doc) => doc.data());
     } catch (err) {
       console.error("Failed to load leaderboard:", err);
       container.innerHTML = `<p class="leaderboard-empty">Couldn't load the leaderboard. Check your internet connection and try again.</p>`;
       return;
     }
 
-    // The 10 most recent attempts are the pool; within that pool, rank by
-    // score (highest first), breaking ties by most recent.
-    list.sort((a, b) => b.bestScore - a.bestScore || new Date(b.date) - new Date(a.date));
+    // Attempts are already sorted by score (highest first), so the first
+    // time we see a given player is necessarily their best result — collect
+    // one entry per unique player, in ranked order.
+    const seen = new Set();
+    const list = [];
+    for (const entry of scanned) {
+      if (seen.has(entry.normalized)) continue;
+      seen.add(entry.normalized);
+      list.push(entry);
+      if (list.length >= LEADERBOARD_TOP_N) break;
+    }
 
     container.innerHTML = "";
 
