@@ -37,6 +37,18 @@
     </div>
   </section>
 
+  <!-- SCREEN 0.7: choose topic type -->
+  <section id="screen-topictype" class="screen">
+    <h1>What would you like to study?</h1>
+    <p class="subtitle">Choose a type of content</p>
+    <div class="choice-grid two-col">
+      <button class="choice-card" data-topictype="words"><span class="card-icon">📚</span><span>Words</span></button>
+      <button class="choice-card" data-topictype="phrases"><span class="card-icon">💬</span><span>Phrases</span></button>
+      <button class="choice-card" data-topictype="dialogues" id="topictype-dialogues-btn"><span class="card-icon">🗣️</span><span>Dialogues</span></button>
+    </div>
+    <button class="back-btn" data-back="screen-mode">&larr; Back</button>
+  </section>
+
   <!-- SCREEN 1: choose language -->
   <section id="screen-language" class="screen">
     <h1>Which language do you want to study?</h1>
@@ -50,10 +62,10 @@
         <span>Portuguese</span>
       </button>
     </div>
-    <button class="back-btn" data-back="screen-mode">&larr; Back</button>
+    <button class="back-btn" data-back="screen-topictype">&larr; Back</button>
   </section>
 
-  <!-- SCREEN 2: choose level -->
+  <!-- SCREEN 2: choose level (Words only) -->
   <section id="screen-level" class="screen">
     <h1>Choose your level</h1>
     <p class="subtitle">How challenging should it be?</p>
@@ -68,10 +80,10 @@
 
   <!-- SCREEN 3: choose category -->
   <section id="screen-category" class="screen">
-    <h1>Choose a category</h1>
+    <h1 id="category-title">Choose a category</h1>
     <p class="subtitle">What do you want to learn?</p>
     <div class="choice-grid three-col" id="category-grid"></div>
-    <button class="back-btn" data-back="screen-level">&larr; Back</button>
+    <button class="back-btn" id="category-back-btn">&larr; Back</button>
   </section>
 
   <!-- SCREEN 4: quiz -->
@@ -110,6 +122,8 @@
       <span class="flashcard-hint">🔊 Tap the card to hear it</span>
     </button>
 
+    <div class="conjugation-table" id="conjugation-table"></div>
+
     <button class="mic-btn" id="mic-btn">
       <span id="mic-icon">🎤</span>
       <span id="mic-label">Tap and say the word</span>
@@ -123,6 +137,41 @@
     </div>
 
     <button class="back-btn" data-back="screen-category">&larr; Choose another topic</button>
+  </section>
+
+  <!-- SCREEN: dialogue picker -->
+  <section id="screen-dialogue-list" class="screen">
+    <h1 id="dialogue-list-title">Dialogues</h1>
+    <p class="subtitle">Pick a conversation to study</p>
+    <div class="choice-grid two-col" id="dialogue-list-grid"></div>
+    <button class="back-btn" data-back="screen-category">&larr; Back</button>
+  </section>
+
+  <!-- SCREEN: dialogue viewer -->
+  <section id="screen-dialogue" class="screen">
+    <div class="quiz-header">
+      <div class="quiz-progress">
+        <span id="dialogue-progress-text">Line 1 / 8</span>
+        <div class="progress-bar"><div class="progress-bar-fill" id="dialogue-progress-fill"></div></div>
+      </div>
+    </div>
+
+    <h2 class="dialogue-title" id="dialogue-title-active"></h2>
+
+    <button class="flashcard" id="dialogue-line-card" title="Tap to hear this line">
+      <span class="dialogue-speaker" id="dialogue-speaker"></span>
+      <span class="flashcard-en" id="dialogue-en"></span>
+      <span class="flashcard-target" id="dialogue-target"></span>
+      <span class="flashcard-pron" id="dialogue-pron"></span>
+      <span class="flashcard-hint">🔊 Tap the card to hear it</span>
+    </button>
+
+    <div class="flashcard-nav">
+      <button class="secondary-btn" id="dialogue-prev-btn">&larr; Previous</button>
+      <button class="primary-btn" id="dialogue-next-btn">Next &rarr;</button>
+    </div>
+
+    <button class="back-btn" data-back="screen-dialogue-list">&larr; Choose another dialogue</button>
   </section>
 
   <!-- SCREEN 5: results -->
@@ -155,6 +204,9 @@
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
 <script src="firebase-config.js"></script>
 <script src="data.js"></script>
+<script src="conjugations.js"></script>
+<script src="phrases.js"></script>
+<script src="dialogues.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

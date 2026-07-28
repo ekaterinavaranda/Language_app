@@ -10,15 +10,19 @@
   const state = {
     playerName: "",
     mode: null,       // 'learning' | 'quiz'
+    topicType: null,  // 'words' | 'phrases' | 'dialogues'
     lang: null,       // 'ru' | 'pt'
-    level: null,      // 'easy' | 'medium' | 'hard' | 'insane'
-    category: null,   // key in WORDS
+    level: null,      // 'easy' | 'medium' | 'hard' | 'insane' (Words only)
+    category: null,   // key in WORDS, or a situational category key for Phrases/Dialogues
     questions: [],     // [{ word, choices: [{text, isCorrect}] }]
     currentIndex: 0,
     score: 0,
     answered: false,
     deck: [],          // flashcard deck (learning mode)
     deckIndex: 0,
+    dialogueList: [],  // the selected category's dialogues
+    dialogueIndex: 0,
+    dialogueLineIndex: 0,
   };
 
   // ---------- Screen navigation ----------
@@ -64,16 +68,22 @@
 
   // ---------- Build category picker ----------
   function renderCategoryGrid() {
+    const isWords = state.topicType === "words";
+    const labels = isWords ? CATEGORY_LABELS : PHRASE_CATEGORY_LABELS;
+    const icons = isWords ? CATEGORY_ICONS : PHRASE_CATEGORY_ICONS;
+
     const grid = document.getElementById("category-grid");
     grid.innerHTML = "";
-    Object.keys(CATEGORY_LABELS).forEach((key) => {
+    Object.keys(labels).forEach((key) => {
       const btn = document.createElement("button");
       btn.className = "choice-card";
       btn.dataset.category = key;
-      const icon = CATEGORY_ICONS[key] || "🔤";
-      btn.innerHTML = `<span class="card-icon">${icon}</span><span>${CATEGORY_LABELS[key]}</span>`;
+      const icon = icons[key] || "🔤";
+      btn.innerHTML = `<span class="card-icon">${icon}</span><span>${labels[key]}</span>`;
       grid.appendChild(btn);
     });
+
+    document.getElementById("category-title").textContent = isWords ? "Choose a category" : "Choose a situation";
   }
 
   // ---------- Quiz generation ----------
@@ -89,33 +99,49 @@
     });
   }
 
-  function getRecentWords(category, level) {
+  // The word/phrase pool for the current selection. Phrases have no level
+  // (one flat list per situational category); Words are scoped to the
+  // chosen level, with the rest of the category available as a fallback.
+  function getLevelPool() {
+    return state.topicType === "phrases" ? PHRASES[state.category] : WORDS[state.category][state.level];
+  }
+
+  function getFullPool() {
+    return state.topicType === "phrases" ? PHRASES[state.category] : getAllCategoryWords(state.category);
+  }
+
+  function getRecentWordsKey() {
+    return state.topicType === "phrases" ? `phrases:${state.category}` : `${state.category}:${state.level}`;
+  }
+
+  function getRecentWords(key) {
     try {
       const all = JSON.parse(localStorage.getItem(RECENT_WORDS_KEY) || "{}");
-      return new Set(all[`${category}:${level}`] || []);
+      return new Set(all[key] || []);
     } catch (e) {
       return new Set();
     }
   }
 
-  function saveRecentWords(category, level, words) {
+  function saveRecentWords(key, words) {
     try {
       const all = JSON.parse(localStorage.getItem(RECENT_WORDS_KEY) || "{}");
-      all[`${category}:${level}`] = words;
+      all[key] = words;
       localStorage.setItem(RECENT_WORDS_KEY, JSON.stringify(all));
     } catch (e) {
-      // localStorage unavailable — not fresh-word tracking isn't essential, skip silently
+      // localStorage unavailable — fresh-word tracking isn't essential, skip silently
     }
   }
 
-  // Builds N unique correct words, preferring ones NOT shown in this
+  // Builds N unique correct words/phrases, preferring ones NOT shown in this
   // player's immediately previous quiz for the same category+level (so
   // back-to-back replays don't just repeat the same words). Falls back to
   // reusing recent words only when the pool is too small to avoid them.
-  function buildUniqueWordList(category, level, count) {
-    const recent = getRecentWords(category, level);
-    const primaryPool = WORDS[category][level];
-    const fullPool = getAllCategoryWords(category);
+  function buildUniqueWordList(count) {
+    const key = getRecentWordsKey();
+    const recent = getRecentWords(key);
+    const primaryPool = getLevelPool();
+    const fullPool = getFullPool();
 
     const rank = (w) => (recent.has(w.en) ? 1 : 0); // fresh words first
     const orderedPrimary = shuffle(primaryPool).sort((a, b) => rank(a) - rank(b));
@@ -138,13 +164,13 @@
       }
     }
 
-    saveRecentWords(category, level, result.map((w) => w.en));
+    saveRecentWords(key, result.map((w) => w.en));
     return result;
   }
 
-  function buildQuiz(category, level, lang) {
-    const fullPool = getAllCategoryWords(category);
-    const correctWords = buildUniqueWordList(category, level, QUESTIONS_PER_QUIZ);
+  function buildQuiz(lang) {
+    const fullPool = getFullPool();
+    const correctWords = buildUniqueWordList(Math.min(QUESTIONS_PER_QUIZ, fullPool.length));
 
     return correctWords.map((word) => {
       const distractorCandidates = fullPool.filter((w) => w[lang] !== word[lang]);
@@ -163,9 +189,9 @@
     state.answered = false;
 
     document.getElementById("quiz-progress-text").textContent =
-      `Question ${state.currentIndex + 1} / ${QUESTIONS_PER_QUIZ}`;
+      `Question ${state.currentIndex + 1} / ${state.questions.length}`;
     document.getElementById("progress-bar-fill").style.width =
-      `${(state.currentIndex / QUESTIONS_PER_QUIZ) * 100}%`;
+      `${(state.currentIndex / state.questions.length) * 100}%`;
     document.getElementById("quiz-score").textContent = state.score;
     document.getElementById("quiz-word").textContent = q.word.en;
     document.getElementById("quiz-word-emoji").textContent = q.word.emoji || "🔤";
@@ -235,7 +261,7 @@
 
   function nextQuestion() {
     state.currentIndex++;
-    if (state.currentIndex >= QUESTIONS_PER_QUIZ) {
+    if (state.currentIndex >= state.questions.length) {
       showResults();
     } else {
       renderQuestion();
@@ -245,7 +271,8 @@
   function showResults() {
     document.getElementById("progress-bar-fill").style.width = "100%";
     document.getElementById("result-score").textContent = state.score;
-    const pct = state.score / QUESTIONS_PER_QUIZ;
+    document.querySelector("#screen-results .result-total").textContent = `/${state.questions.length}`;
+    const pct = state.score / state.questions.length;
     let message;
     if (pct === 1) message = "Perfect score! Outstanding work.";
     else if (pct >= 0.8) message = "Excellent! You really know this.";
@@ -262,7 +289,7 @@
   }
 
   function startQuiz() {
-    state.questions = buildQuiz(state.category, state.level, state.lang);
+    state.questions = buildQuiz(state.lang);
     state.currentIndex = 0;
     state.score = 0;
     showScreen("screen-quiz");
@@ -271,10 +298,31 @@
 
   // ---------- Learning mode: flashcards ----------
   function startFlashcards() {
-    state.deck = shuffle(WORDS[state.category][state.level]);
+    state.deck = shuffle(getLevelPool());
     state.deckIndex = 0;
     showScreen("screen-flashcard");
     renderFlashcard();
+  }
+
+  // Classifies a verb into the regular -ar/-er/-ir pattern PLE courses
+  // organize verb teaching around, or "Irregular" otherwise. Requires an
+  // unchanging stem AND the exact regular ending set — matching only the
+  // nós ending would wrongly call irregular verbs like "ir" regular
+  // (vamos looks like a regular -ar ending in isolation).
+  const PT_REGULAR_ENDINGS = {
+    "-ar": ["o", "as", "a", "amos", "ais", "am"],
+    "-er": ["o", "es", "e", "emos", "eis", "em"],
+    "-ir": ["o", "es", "e", "imos", "is", "em"],
+  };
+
+  function ptConjugationClass(conj) {
+    const endings = conj.forms.map((f) => f.ending);
+    const sameStem = conj.forms.every((f) => f.stem === conj.forms[0].stem);
+    if (!sameStem) return "Irregular";
+    for (const [label, pattern] of Object.entries(PT_REGULAR_ENDINGS)) {
+      if (pattern.every((e, i) => e === endings[i])) return label;
+    }
+    return "Irregular";
   }
 
   function renderFlashcard() {
@@ -293,6 +341,8 @@
     document.getElementById("flashcard-target").textContent = capitalize(word[state.lang]);
     document.getElementById("flashcard-pron").textContent = `[${word[pronField]}]`;
 
+    renderConjugationTable(word);
+
     const feedback = document.getElementById("mic-feedback");
     feedback.textContent = "";
     feedback.className = "mic-feedback";
@@ -300,6 +350,47 @@
     document.getElementById("flashcard-prev-btn").disabled = state.deckIndex === 0;
     document.getElementById("flashcard-next-btn").textContent =
       state.deckIndex === state.deck.length - 1 ? "Finish" : "Next →";
+  }
+
+  function renderConjugationTable(word) {
+    const container = document.getElementById("conjugation-table");
+    const conj = state.category === "verbs" && VERB_CONJUGATIONS[word.en]
+      ? VERB_CONJUGATIONS[word.en][state.lang]
+      : null;
+
+    if (!conj) {
+      container.className = "conjugation-table";
+      container.innerHTML = "";
+      return;
+    }
+
+    const pronouns = state.lang === "ru" ? RU_PRONOUNS : PT_PRONOUNS;
+    const tail = conj.tail || "";
+
+    const rows = conj.forms
+      .map(
+        (form, i) => `
+      <div class="conj-row">
+        <span class="conj-pronoun">${pronouns[i]}</span>
+        <span class="conj-form"><span class="conj-stem">${capitalize(form.stem)}</span><span class="conj-ending">${form.ending}</span>${tail}</span>
+        <button class="conj-play" data-index="${i}" title="Listen">🔊</button>
+      </div>`
+      )
+      .join("");
+
+    const grammarNote = state.lang === "ru"
+      ? "Imperfective aspect — an ongoing/repeated action (as opposed to a single completed one)"
+      : `${ptConjugationClass(conj)} verb`;
+
+    container.innerHTML = `<p class="conjugation-table-title">Present tense · ${grammarNote}</p>${rows}`;
+    container.className = "conjugation-table visible";
+
+    container.querySelectorAll(".conj-play").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const form = conj.forms[Number(btn.dataset.index)];
+        speak(form.stem + form.ending + tail, state.lang);
+      });
+    });
   }
 
   function playCurrentCard() {
@@ -320,6 +411,76 @@
     if (state.deckIndex === 0) return;
     state.deckIndex--;
     renderFlashcard();
+  }
+
+  // ---------- Learning mode: dialogues ----------
+  function startDialogueList() {
+    state.dialogueList = DIALOGUES[state.category] || [];
+
+    document.getElementById("dialogue-list-title").textContent =
+      `${PHRASE_CATEGORY_LABELS[state.category] || ""} — Dialogues`;
+
+    const grid = document.getElementById("dialogue-list-grid");
+    grid.innerHTML = "";
+    state.dialogueList.forEach((dlg, i) => {
+      const btn = document.createElement("button");
+      btn.className = "choice-card";
+      btn.dataset.dialogueIndex = i;
+      btn.innerHTML = `<span class="card-icon">💬</span><span>${dlg.title}</span>`;
+      grid.appendChild(btn);
+    });
+
+    showScreen("screen-dialogue-list");
+  }
+
+  function startDialogue(index) {
+    state.dialogueIndex = index;
+    state.dialogueLineIndex = 0;
+    showScreen("screen-dialogue");
+    renderDialogueLine();
+  }
+
+  function renderDialogueLine() {
+    const dlg = state.dialogueList[state.dialogueIndex];
+    const line = dlg.lines[state.dialogueLineIndex];
+    const pronField = state.lang === "ru" ? "ruPron" : "ptPron";
+
+    document.getElementById("dialogue-title-active").textContent = dlg.title;
+    document.getElementById("dialogue-progress-text").textContent =
+      `Line ${state.dialogueLineIndex + 1} / ${dlg.lines.length}`;
+    document.getElementById("dialogue-progress-fill").style.width =
+      `${(state.dialogueLineIndex / dlg.lines.length) * 100}%`;
+
+    document.getElementById("dialogue-speaker").textContent = line.speaker;
+    document.getElementById("dialogue-en").textContent = line.en;
+    document.getElementById("dialogue-target").textContent = capitalize(line[state.lang]);
+    document.getElementById("dialogue-pron").textContent = `[${line[pronField]}]`;
+
+    document.getElementById("dialogue-prev-btn").disabled = state.dialogueLineIndex === 0;
+    document.getElementById("dialogue-next-btn").textContent =
+      state.dialogueLineIndex === dlg.lines.length - 1 ? "Finish" : "Next →";
+  }
+
+  function playDialogueLine() {
+    const dlg = state.dialogueList[state.dialogueIndex];
+    const line = dlg.lines[state.dialogueLineIndex];
+    speak(line[state.lang], state.lang);
+  }
+
+  function nextDialogueLine() {
+    const dlg = state.dialogueList[state.dialogueIndex];
+    if (state.dialogueLineIndex >= dlg.lines.length - 1) {
+      showScreen("screen-dialogue-list");
+      return;
+    }
+    state.dialogueLineIndex++;
+    renderDialogueLine();
+  }
+
+  function prevDialogueLine() {
+    if (state.dialogueLineIndex === 0) return;
+    state.dialogueLineIndex--;
+    renderDialogueLine();
   }
 
   // ---------- Pronunciation scoring via the Web Speech API ----------
@@ -587,7 +748,7 @@
       const metaParts = [relativeTime(entry.date)];
       if (entry.lang) metaParts.push(LANGUAGE_LABELS[entry.lang]);
       if (entry.level) metaParts.push(LEVEL_LABELS[entry.level]);
-      if (entry.category) metaParts.push(CATEGORY_LABELS[entry.category]);
+      if (entry.category) metaParts.push(CATEGORY_LABELS[entry.category] || PHRASE_CATEGORY_LABELS[entry.category] || entry.category);
 
       row.innerHTML = `
         <span class="leaderboard-rank">#${index + 1}</span>
@@ -600,8 +761,6 @@
 
   // ---------- Event wiring ----------
   function init() {
-    renderCategoryGrid();
-
     const nameInput = document.getElementById("name-input");
     const savedName = localStorage.getItem(LAST_NAME_KEY);
     if (savedName) nameInput.value = savedName;
@@ -619,6 +778,17 @@
     document.querySelectorAll("[data-mode]").forEach((btn) => {
       btn.addEventListener("click", () => {
         state.mode = btn.dataset.mode;
+        // Dialogues are a Learning-only concept — a multi-choice quiz over
+        // full conversations doesn't map onto the existing quiz mechanics.
+        document.getElementById("topictype-dialogues-btn").style.display =
+          state.mode === "learning" ? "" : "none";
+        showScreen("screen-topictype");
+      });
+    });
+
+    document.querySelectorAll("[data-topictype]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        state.topicType = btn.dataset.topictype;
         showScreen("screen-language");
       });
     });
@@ -626,13 +796,21 @@
     document.querySelectorAll("[data-lang]").forEach((btn) => {
       btn.addEventListener("click", () => {
         state.lang = btn.dataset.lang;
-        showScreen("screen-level");
+        if (state.topicType === "words") {
+          showScreen("screen-level");
+        } else {
+          // Phrases/Dialogues have no difficulty level — go straight to
+          // the (situational) category picker.
+          renderCategoryGrid();
+          showScreen("screen-category");
+        }
       });
     });
 
     document.querySelectorAll("[data-level]").forEach((btn) => {
       btn.addEventListener("click", () => {
         state.level = btn.dataset.level;
+        renderCategoryGrid();
         showScreen("screen-category");
       });
     });
@@ -641,11 +819,17 @@
       const btn = e.target.closest("[data-category]");
       if (!btn) return;
       state.category = btn.dataset.category;
-      if (state.mode === "learning") {
+      if (state.topicType === "dialogues") {
+        startDialogueList();
+      } else if (state.mode === "learning") {
         startFlashcards();
       } else {
         startQuiz();
       }
+    });
+
+    document.getElementById("category-back-btn").addEventListener("click", () => {
+      showScreen(state.topicType === "words" ? "screen-level" : "screen-language");
     });
 
     document.querySelectorAll("[data-back]").forEach((btn) => {
@@ -660,6 +844,15 @@
     document.getElementById("flashcard-prev-btn").addEventListener("click", prevCard);
     document.getElementById("flashcard-next-btn").addEventListener("click", nextCard);
     document.getElementById("mic-btn").addEventListener("click", handleMicClick);
+
+    document.getElementById("dialogue-list-grid").addEventListener("click", (e) => {
+      const btn = e.target.closest("[data-dialogue-index]");
+      if (!btn) return;
+      startDialogue(Number(btn.dataset.dialogueIndex));
+    });
+    document.getElementById("dialogue-line-card").addEventListener("click", playDialogueLine);
+    document.getElementById("dialogue-prev-btn").addEventListener("click", prevDialogueLine);
+    document.getElementById("dialogue-next-btn").addEventListener("click", nextDialogueLine);
 
     document.getElementById("leaderboard-btn").addEventListener("click", () => {
       renderLeaderboard();

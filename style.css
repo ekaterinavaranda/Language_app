@@ -468,6 +468,83 @@ h1 {
   color: var(--muted);
 }
 
+/* Verb conjugation table (Learning mode, Verbs category) */
+.conjugation-table {
+  display: none;
+  width: 100%;
+  margin-top: 18px;
+  background: var(--card-bg);
+  border: 2px solid var(--border);
+  border-radius: 16px;
+  padding: 14px 18px;
+  box-shadow: var(--shadow);
+}
+
+.conjugation-table.visible {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.conjugation-table-title {
+  font-size: 0.9rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0 0 8px;
+  text-align: left;
+}
+
+.conj-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 4px;
+  border-bottom: 1px solid var(--border);
+}
+
+.conj-row:last-child {
+  border-bottom: none;
+}
+
+.conj-pronoun {
+  flex: 0 0 38%;
+  color: var(--muted);
+  font-size: 1rem;
+  text-align: left;
+}
+
+.conj-form {
+  flex: 1;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-align: left;
+}
+
+.conj-stem {
+  color: var(--text);
+}
+
+.conj-ending {
+  color: var(--accent);
+  font-weight: 800;
+}
+
+.conj-play {
+  flex: 0 0 auto;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 8px;
+  line-height: 1;
+}
+
+.conj-play:hover {
+  background: var(--bg);
+}
+
 .mic-btn {
   margin-top: 24px;
   background: var(--card-bg);
@@ -532,6 +609,23 @@ h1 {
 .flashcard-nav .secondary-btn,
 .flashcard-nav .primary-btn {
   margin-top: 0;
+}
+
+/* Dialogues */
+.dialogue-title {
+  font-size: 1.3rem;
+  margin: 0 0 16px;
+}
+
+.dialogue-speaker {
+  display: inline-block;
+  background: var(--primary);
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 4px 14px;
+  border-radius: 20px;
+  margin-bottom: 12px;
 }
 
 /* Results screen */
