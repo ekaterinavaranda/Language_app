@@ -469,10 +469,43 @@ h1 {
 }
 
 /* Verb conjugation table (Learning mode, Verbs category) */
+.tense-tabs {
+  display: none;
+  width: 100%;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.tense-tabs.visible {
+  display: flex;
+}
+
+.tense-tab {
+  flex: 1;
+  background: var(--card-bg);
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.tense-tab:hover {
+  border-color: var(--primary);
+}
+
+.tense-tab.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
 .conjugation-table {
   display: none;
   width: 100%;
-  margin-top: 18px;
+  margin-top: 10px;
   background: var(--card-bg);
   border: 2px solid var(--border);
   border-radius: 16px;
@@ -514,8 +547,14 @@ h1 {
   text-align: left;
 }
 
-.conj-form {
+.conj-lines {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.conj-form {
   font-size: 1.2rem;
   font-weight: 700;
   text-align: left;
@@ -528,6 +567,13 @@ h1 {
 .conj-ending {
   color: var(--accent);
   font-weight: 800;
+}
+
+.conj-pron {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--muted);
+  text-align: left;
 }
 
 .conj-play {
@@ -626,6 +672,87 @@ h1 {
   padding: 4px 14px;
   border-radius: 20px;
   margin-bottom: 12px;
+}
+
+/* Grammar */
+.grammar-paragraphs {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 8px;
+}
+
+.grammar-paragraphs p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text);
+  margin: 0 0 14px;
+}
+
+.grammar-examples {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.grammar-example {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--card-bg);
+  border: 2px solid var(--border);
+  border-radius: 14px;
+  padding: 14px 18px;
+  box-shadow: var(--shadow);
+  text-align: left;
+}
+
+.grammar-example-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.grammar-example-native {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.grammar-example-pron {
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--muted);
+}
+
+.grammar-example-en {
+  font-size: 1rem;
+  color: var(--text);
+  margin-top: 4px;
+}
+
+.grammar-example-note {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.grammar-example-play {
+  flex: 0 0 auto;
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 8px;
+  line-height: 1;
+}
+
+.grammar-example-play:hover {
+  background: var(--bg);
 }
 
 /* Results screen */

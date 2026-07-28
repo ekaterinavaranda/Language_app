@@ -45,6 +45,7 @@
       <button class="choice-card" data-topictype="words"><span class="card-icon">📚</span><span>Words</span></button>
       <button class="choice-card" data-topictype="phrases"><span class="card-icon">💬</span><span>Phrases</span></button>
       <button class="choice-card" data-topictype="dialogues" id="topictype-dialogues-btn"><span class="card-icon">🗣️</span><span>Dialogues</span></button>
+      <button class="choice-card" data-topictype="grammar" id="topictype-grammar-btn"><span class="card-icon">📐</span><span>Grammar</span></button>
     </div>
     <button class="back-btn" data-back="screen-mode">&larr; Back</button>
   </section>
@@ -122,6 +123,11 @@
       <span class="flashcard-hint">🔊 Tap the card to hear it</span>
     </button>
 
+    <div class="tense-tabs" id="tense-tabs">
+      <button class="tense-tab" data-tense="present">Present</button>
+      <button class="tense-tab" data-tense="past">Past</button>
+      <button class="tense-tab" data-tense="future">Future</button>
+    </div>
     <div class="conjugation-table" id="conjugation-table"></div>
 
     <button class="mic-btn" id="mic-btn">
@@ -174,6 +180,22 @@
     <button class="back-btn" data-back="screen-dialogue-list">&larr; Choose another dialogue</button>
   </section>
 
+  <!-- SCREEN: grammar topic list -->
+  <section id="screen-grammar-list" class="screen">
+    <h1>Grammar</h1>
+    <p class="subtitle">Core topics to get you started</p>
+    <div class="choice-grid two-col" id="grammar-list-grid"></div>
+    <button class="back-btn" data-back="screen-language">&larr; Back</button>
+  </section>
+
+  <!-- SCREEN: grammar lesson viewer -->
+  <section id="screen-grammar-lesson" class="screen">
+    <h1 id="grammar-lesson-title">Topic</h1>
+    <div class="grammar-paragraphs" id="grammar-lesson-paragraphs"></div>
+    <div class="grammar-examples" id="grammar-lesson-examples"></div>
+    <button class="back-btn" data-back="screen-grammar-list">&larr; Choose another topic</button>
+  </section>
+
   <!-- SCREEN 5: results -->
   <section id="screen-results" class="screen">
     <h1>Quiz Complete!</h1>
@@ -207,6 +229,7 @@
 <script src="conjugations.js"></script>
 <script src="phrases.js"></script>
 <script src="dialogues.js"></script>
+<script src="grammar.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

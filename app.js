@@ -23,6 +23,7 @@
     dialogueList: [],  // the selected category's dialogues
     dialogueIndex: 0,
     dialogueLineIndex: 0,
+    tense: "present",  // 'present' | 'past' | 'future' (Verbs conjugation table)
   };
 
   // ---------- Screen navigation ----------
@@ -300,6 +301,7 @@
   function startFlashcards() {
     state.deck = shuffle(getLevelPool());
     state.deckIndex = 0;
+    state.tense = "present";
     showScreen("screen-flashcard");
     renderFlashcard();
   }
@@ -325,6 +327,8 @@
     return "Irregular";
   }
 
+  const TENSE_LABELS = { present: "Present", past: "Past", future: "Future" };
+
   function renderFlashcard() {
     const word = state.deck[state.deckIndex];
     const pronField = state.lang === "ru" ? "ruPron" : "ptPron";
@@ -341,6 +345,11 @@
     document.getElementById("flashcard-target").textContent = capitalize(word[state.lang]);
     document.getElementById("flashcard-pron").textContent = `[${word[pronField]}]`;
 
+    const isVerb = state.category === "verbs" && !!VERB_CONJUGATIONS[word.en];
+    document.getElementById("tense-tabs").classList.toggle("visible", isVerb);
+    document.querySelectorAll(".tense-tab").forEach((btn) => {
+      btn.classList.toggle("active", btn.dataset.tense === state.tense);
+    });
     renderConjugationTable(word);
 
     const feedback = document.getElementById("mic-feedback");
@@ -352,42 +361,56 @@
       state.deckIndex === state.deck.length - 1 ? "Finish" : "Next →";
   }
 
+  function ptGrammarNote(tenseData, tense) {
+    if (tense === "future") return "Regular future (formed from the infinitive)";
+    if (tense === "past") return tenseData.irregular ? "⚠️ Irregular verb — doesn't follow the regular pattern" : "Regular preterite";
+    return `${ptConjugationClass(tenseData)} verb`;
+  }
+
+  function ruGrammarNote(tense) {
+    if (tense === "past") return "Imperfective aspect — agrees by gender & number, not by person";
+    if (tense === "future") return "Imperfective aspect — compound future (буду + infinitive)";
+    return "Imperfective aspect — an ongoing/repeated action (as opposed to a single completed one)";
+  }
+
   function renderConjugationTable(word) {
     const container = document.getElementById("conjugation-table");
-    const conj = state.category === "verbs" && VERB_CONJUGATIONS[word.en]
-      ? VERB_CONJUGATIONS[word.en][state.lang]
-      : null;
+    const allTenses = state.category === "verbs" ? VERB_CONJUGATIONS[word.en] : null;
+    const tenseData = allTenses ? allTenses[state.lang][state.tense] : null;
 
-    if (!conj) {
+    if (!tenseData) {
       container.className = "conjugation-table";
       container.innerHTML = "";
       return;
     }
 
-    const pronouns = state.lang === "ru" ? RU_PRONOUNS : PT_PRONOUNS;
-    const tail = conj.tail || "";
+    const pronouns = state.lang === "ru"
+      ? (state.tense === "past" ? RU_PAST_LABELS : RU_PRONOUNS)
+      : PT_PRONOUNS;
+    const tail = tenseData.tail || "";
 
-    const rows = conj.forms
+    const rows = tenseData.forms
       .map(
         (form, i) => `
       <div class="conj-row">
         <span class="conj-pronoun">${pronouns[i]}</span>
-        <span class="conj-form"><span class="conj-stem">${capitalize(form.stem)}</span><span class="conj-ending">${form.ending}</span>${tail}</span>
+        <span class="conj-lines">
+          <span class="conj-form"><span class="conj-stem">${capitalize(form.stem)}</span><span class="conj-ending">${form.ending}</span>${tail}</span>
+          <span class="conj-pron">[${form.pron}]</span>
+        </span>
         <button class="conj-play" data-index="${i}" title="Listen">🔊</button>
       </div>`
       )
       .join("");
 
-    const grammarNote = state.lang === "ru"
-      ? "Imperfective aspect — an ongoing/repeated action (as opposed to a single completed one)"
-      : `${ptConjugationClass(conj)} verb`;
+    const grammarNote = state.lang === "ru" ? ruGrammarNote(state.tense) : ptGrammarNote(tenseData, state.tense);
 
-    container.innerHTML = `<p class="conjugation-table-title">Present tense · ${grammarNote}</p>${rows}`;
+    container.innerHTML = `<p class="conjugation-table-title">${TENSE_LABELS[state.tense]} tense · ${grammarNote}</p>${rows}`;
     container.className = "conjugation-table visible";
 
     container.querySelectorAll(".conj-play").forEach((btn) => {
       btn.addEventListener("click", () => {
-        const form = conj.forms[Number(btn.dataset.index)];
+        const form = tenseData.forms[Number(btn.dataset.index)];
         speak(form.stem + form.ending + tail, state.lang);
       });
     });
@@ -481,6 +504,53 @@
     if (state.dialogueLineIndex === 0) return;
     state.dialogueLineIndex--;
     renderDialogueLine();
+  }
+
+  // ---------- Learning mode: grammar reference ----------
+  function renderGrammarList() {
+    const grid = document.getElementById("grammar-list-grid");
+    grid.innerHTML = "";
+    GRAMMAR_TOPICS[state.lang].forEach((topic, i) => {
+      const btn = document.createElement("button");
+      btn.className = "choice-card";
+      btn.dataset.grammarIndex = i;
+      btn.innerHTML = `<span class="card-icon">📐</span><span>${topic.title}</span>`;
+      grid.appendChild(btn);
+    });
+  }
+
+  function openGrammarLesson(index) {
+    const topic = GRAMMAR_TOPICS[state.lang][index];
+
+    document.getElementById("grammar-lesson-title").textContent = topic.title;
+    document.getElementById("grammar-lesson-paragraphs").innerHTML = topic.paragraphs
+      .map((p) => `<p>${p}</p>`)
+      .join("");
+
+    const examplesEl = document.getElementById("grammar-lesson-examples");
+    examplesEl.innerHTML = topic.examples
+      .map(
+        (ex, i) => `
+      <div class="grammar-example">
+        <span class="grammar-example-main">
+          <span class="grammar-example-native">${capitalize(ex.native)}</span>
+          <span class="grammar-example-pron">[${ex.pron}]</span>
+          <span class="grammar-example-en">${ex.en}</span>
+          <span class="grammar-example-note">${ex.note}</span>
+        </span>
+        <button class="grammar-example-play" data-index="${i}" title="Listen">🔊</button>
+      </div>`
+      )
+      .join("");
+
+    examplesEl.querySelectorAll(".grammar-example-play").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const ex = topic.examples[Number(btn.dataset.index)];
+        speak(ex.native, state.lang);
+      });
+    });
+
+    showScreen("screen-grammar-lesson");
   }
 
   // ---------- Pronunciation scoring via the Web Speech API ----------
@@ -778,10 +848,11 @@
     document.querySelectorAll("[data-mode]").forEach((btn) => {
       btn.addEventListener("click", () => {
         state.mode = btn.dataset.mode;
-        // Dialogues are a Learning-only concept — a multi-choice quiz over
-        // full conversations doesn't map onto the existing quiz mechanics.
-        document.getElementById("topictype-dialogues-btn").style.display =
-          state.mode === "learning" ? "" : "none";
+        // Dialogues and Grammar are Learning-only concepts — a multi-choice
+        // quiz doesn't map onto a full conversation or a grammar lesson.
+        const learningOnly = state.mode === "learning" ? "" : "none";
+        document.getElementById("topictype-dialogues-btn").style.display = learningOnly;
+        document.getElementById("topictype-grammar-btn").style.display = learningOnly;
         showScreen("screen-topictype");
       });
     });
@@ -798,6 +869,9 @@
         state.lang = btn.dataset.lang;
         if (state.topicType === "words") {
           showScreen("screen-level");
+        } else if (state.topicType === "grammar") {
+          renderGrammarList();
+          showScreen("screen-grammar-list");
         } else {
           // Phrases/Dialogues have no difficulty level — go straight to
           // the (situational) category picker.
@@ -845,6 +919,14 @@
     document.getElementById("flashcard-next-btn").addEventListener("click", nextCard);
     document.getElementById("mic-btn").addEventListener("click", handleMicClick);
 
+    document.querySelectorAll(".tense-tab").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        state.tense = btn.dataset.tense;
+        document.querySelectorAll(".tense-tab").forEach((b) => b.classList.toggle("active", b === btn));
+        renderConjugationTable(state.deck[state.deckIndex]);
+      });
+    });
+
     document.getElementById("dialogue-list-grid").addEventListener("click", (e) => {
       const btn = e.target.closest("[data-dialogue-index]");
       if (!btn) return;
@@ -853,6 +935,12 @@
     document.getElementById("dialogue-line-card").addEventListener("click", playDialogueLine);
     document.getElementById("dialogue-prev-btn").addEventListener("click", prevDialogueLine);
     document.getElementById("dialogue-next-btn").addEventListener("click", nextDialogueLine);
+
+    document.getElementById("grammar-list-grid").addEventListener("click", (e) => {
+      const btn = e.target.closest("[data-grammar-index]");
+      if (!btn) return;
+      openGrammarLesson(Number(btn.dataset.grammarIndex));
+    });
 
     document.getElementById("leaderboard-btn").addEventListener("click", () => {
       renderLeaderboard();
