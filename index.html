@@ -34,6 +34,10 @@
         <span class="card-icon">🎯</span>
         <span>Quiz</span>
       </button>
+      <button class="choice-card wide" data-mode="practice">
+        <span class="card-icon">🎙️</span>
+        <span>Practice Conversation</span>
+      </button>
     </div>
   </section>
 
@@ -194,6 +198,19 @@
     <div class="grammar-paragraphs" id="grammar-lesson-paragraphs"></div>
     <div class="grammar-examples" id="grammar-lesson-examples"></div>
     <button class="back-btn" data-back="screen-grammar-list">&larr; Choose another topic</button>
+  </section>
+
+  <!-- SCREEN: practice conversation -->
+  <section id="screen-practice-chat" class="screen">
+    <h1>Practice Conversation</h1>
+    <div class="practice-transcript" id="practice-transcript"></div>
+
+    <button class="mic-btn" id="practice-mic-btn" disabled>
+      <span id="practice-mic-icon">🎤</span>
+      <span class="practice-mic-label" id="practice-mic-label">Starting conversation…</span>
+    </button>
+
+    <button class="back-btn" data-back="screen-mode">&larr; End practice</button>
   </section>
 
   <!-- SCREEN 5: results -->

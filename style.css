@@ -164,6 +164,12 @@ h1 {
   gap: 8px;
 }
 
+.choice-card.wide {
+  grid-column: 1 / -1;
+  flex-direction: row;
+  justify-content: center;
+}
+
 .choice-card .flag,
 .choice-card .card-icon {
   font-size: 2.2rem;
@@ -753,6 +759,116 @@ h1 {
 
 .grammar-example-play:hover {
   background: var(--bg);
+}
+
+/* Practice Conversation */
+.practice-transcript {
+  width: 100%;
+  max-height: 55vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 8px;
+  padding: 4px;
+}
+
+.practice-bubble {
+  max-width: 85%;
+  border-radius: 16px;
+  padding: 14px 18px;
+  box-shadow: var(--shadow);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.practice-bubble.assistant {
+  align-self: flex-start;
+  background: var(--card-bg);
+  border: 2px solid var(--border);
+  border-bottom-left-radius: 4px;
+}
+
+.practice-bubble.user {
+  align-self: flex-end;
+  background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+  color: #fff;
+  border-bottom-right-radius: 4px;
+}
+
+.practice-bubble-play {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 2px;
+}
+
+.practice-bubble-text {
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.practice-bubble.assistant .practice-bubble-text {
+  color: var(--primary);
+}
+
+.practice-bubble-translation {
+  font-size: 0.9rem;
+  font-style: italic;
+  opacity: 0.85;
+}
+
+.practice-corrections:empty {
+  display: none;
+}
+
+.practice-correction {
+  margin-top: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+}
+
+.practice-bubble.user .practice-correction {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.practice-correction-original {
+  color: #ffd7d7;
+  text-decoration: line-through;
+}
+
+.practice-correction-arrow {
+  margin: 0 6px;
+  opacity: 0.8;
+}
+
+.practice-correction-fixed {
+  font-weight: 800;
+  color: #d7ffe0;
+}
+
+.practice-correction-note {
+  display: block;
+  margin-top: 4px;
+  font-weight: 400;
+  opacity: 0.9;
+}
+
+.practice-encouragement {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+#practice-mic-label.wrong {
+  color: var(--red);
 }
 
 /* Results screen */

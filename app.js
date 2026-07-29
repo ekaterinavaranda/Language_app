@@ -6,11 +6,12 @@
   const CELEBRATION_THRESHOLD = 7;
   const LAST_NAME_KEY = "happyLearningLastName";
   const RECENT_WORDS_KEY = "happyLearningRecentWords";
+  const PRACTICE_FUNCTION_URL = "https://us-central1-happy-learning-92242.cloudfunctions.net/practiceConversation";
 
   const state = {
     playerName: "",
-    mode: null,       // 'learning' | 'quiz'
-    topicType: null,  // 'words' | 'phrases' | 'dialogues'
+    mode: null,       // 'learning' | 'quiz' | 'practice'
+    topicType: null,  // 'words' | 'phrases' | 'dialogues' | 'grammar'
     lang: null,       // 'ru' | 'pt'
     level: null,      // 'easy' | 'medium' | 'hard' | 'insane' (Words only)
     category: null,   // key in WORDS, or a situational category key for Phrases/Dialogues
@@ -24,6 +25,7 @@
     dialogueIndex: 0,
     dialogueLineIndex: 0,
     tense: "present",  // 'present' | 'past' | 'future' (Verbs conjugation table)
+    practiceHistory: [], // [{ role: 'user'|'assistant', text }] sent to/from the Practice Conversation Cloud Function
   };
 
   // ---------- Screen navigation ----------
@@ -678,6 +680,180 @@
     }
   }
 
+  // ---------- Practice Conversation (Claude-powered) ----------
+  async function callPracticeFunction(userUtterance) {
+    const resp = await fetch(PRACTICE_FUNCTION_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        data: {
+          lang: state.lang,
+          history: state.practiceHistory,
+          userUtterance: userUtterance || undefined,
+        },
+      }),
+    });
+    const json = await resp.json();
+    if (!resp.ok || json.error) {
+      throw new Error((json.error && json.error.message) || "Request failed");
+    }
+    return json.result;
+  }
+
+  function setPracticeStatus(text, busy, isError = false) {
+    document.getElementById("practice-mic-label").textContent = text;
+    document.getElementById("practice-mic-label").classList.toggle("wrong", isError);
+    document.getElementById("practice-mic-btn").disabled = busy;
+  }
+
+  function renderPracticeAssistantBubble(text, translation) {
+    const container = document.getElementById("practice-transcript");
+    const bubble = document.createElement("div");
+    bubble.className = "practice-bubble assistant";
+    bubble.innerHTML = `
+      <button class="practice-bubble-play" title="Listen">🔊</button>
+      <span class="practice-bubble-text"></span>
+      <span class="practice-bubble-translation"></span>
+    `;
+    bubble.querySelector(".practice-bubble-text").textContent = text;
+    bubble.querySelector(".practice-bubble-translation").textContent = translation;
+    bubble.querySelector(".practice-bubble-play").addEventListener("click", () => speak(text, state.lang));
+    container.appendChild(bubble);
+    container.scrollTop = container.scrollHeight;
+    return bubble;
+  }
+
+  function renderPracticeUserBubble(text) {
+    const container = document.getElementById("practice-transcript");
+    const bubble = document.createElement("div");
+    bubble.className = "practice-bubble user";
+    bubble.innerHTML = `
+      <span class="practice-bubble-text"></span>
+      <div class="practice-corrections"></div>
+    `;
+    bubble.querySelector(".practice-bubble-text").textContent = text;
+    container.appendChild(bubble);
+    container.scrollTop = container.scrollHeight;
+    return bubble;
+  }
+
+  function applyCorrectionsToBubble(bubble, corrections, encouragement) {
+    const box = bubble.querySelector(".practice-corrections");
+    if (corrections && corrections.length > 0) {
+      box.innerHTML = corrections
+        .map(
+          (c) => `
+        <div class="practice-correction">
+          <span class="practice-correction-original">${c.original}</span>
+          <span class="practice-correction-arrow">→</span>
+          <span class="practice-correction-fixed">${c.corrected}</span>
+          <span class="practice-correction-note">${c.explanation}</span>
+        </div>`
+        )
+        .join("");
+    } else if (encouragement) {
+      box.innerHTML = `<div class="practice-encouragement">✅ ${encouragement}</div>`;
+    }
+    document.getElementById("practice-transcript").scrollTop =
+      document.getElementById("practice-transcript").scrollHeight;
+  }
+
+  async function startPracticeConversation() {
+    state.practiceHistory = [];
+    document.getElementById("practice-transcript").innerHTML = "";
+    setPracticeStatus("Starting conversation…", true);
+    showScreen("screen-practice-chat");
+
+    try {
+      const result = await callPracticeFunction(null);
+      state.practiceHistory.push({ role: "user", text: "(start the conversation)" });
+      state.practiceHistory.push({ role: "assistant", text: result.reply });
+      renderPracticeAssistantBubble(result.reply, result.reply_translation);
+      speak(result.reply, state.lang);
+      setPracticeStatus("Tap the mic and speak", false);
+    } catch (err) {
+      console.error("Practice Conversation error:", err);
+      setPracticeStatus("Couldn't start the conversation. Check your connection and try again.", false, true);
+    }
+  }
+
+  function handlePracticeMicClick() {
+    const micBtn = document.getElementById("practice-mic-btn");
+    const SR = getSpeechRecognitionCtor();
+
+    if (!SR) {
+      setPracticeStatus("Speech recognition isn't supported in this browser. Try Chrome or Edge.", false, true);
+      return;
+    }
+    if (micBtn.disabled || micBtn.classList.contains("listening")) return;
+
+    const recognizer = new SR();
+    recognizer.lang = SPEECH_LANG[state.lang];
+    recognizer.interimResults = false;
+
+    micBtn.classList.add("listening");
+    setPracticeStatus("Listening…", false);
+
+    const watchdog = setTimeout(() => {
+      try {
+        recognizer.abort();
+      } catch (e) {
+        // ignore
+      }
+      micBtn.classList.remove("listening");
+      setPracticeStatus("No response from the microphone — try again.", false, true);
+    }, 8000);
+
+    recognizer.onresult = async (event) => {
+      clearTimeout(watchdog);
+      micBtn.classList.remove("listening");
+      const heard = event.results[0][0].transcript;
+
+      const userBubble = renderPracticeUserBubble(heard);
+      setPracticeStatus("Thinking…", true);
+
+      try {
+        const result = await callPracticeFunction(heard);
+        applyCorrectionsToBubble(userBubble, result.corrections, result.encouragement);
+        state.practiceHistory.push({ role: "user", text: heard });
+        state.practiceHistory.push({ role: "assistant", text: result.reply });
+        renderPracticeAssistantBubble(result.reply, result.reply_translation);
+        speak(result.reply, state.lang);
+        setPracticeStatus("Tap the mic and speak", false);
+      } catch (err) {
+        console.error("Practice Conversation error:", err);
+        setPracticeStatus("Couldn't reach the conversation partner. Try again.", false, true);
+      }
+    };
+
+    recognizer.onerror = (event) => {
+      clearTimeout(watchdog);
+      micBtn.classList.remove("listening");
+      setPracticeStatus(
+        event.error === "not-allowed" || event.error === "permission-denied"
+          ? "Microphone access denied. Please allow microphone permissions and try again."
+          : event.error === "no-speech"
+          ? "Didn't hear anything — try again."
+          : "Something went wrong with the microphone. Try again.",
+        false,
+        true
+      );
+    };
+
+    recognizer.onend = () => {
+      clearTimeout(watchdog);
+      micBtn.classList.remove("listening");
+    };
+
+    try {
+      recognizer.start();
+    } catch (e) {
+      clearTimeout(watchdog);
+      micBtn.classList.remove("listening");
+      setPracticeStatus("Couldn't start the microphone. Try again.", false, true);
+    }
+  }
+
   // ---------- Celebration: confetti + fireworks ----------
   function celebrate() {
     const overlay = document.getElementById("celebration-overlay");
@@ -848,6 +1024,15 @@
     document.querySelectorAll("[data-mode]").forEach((btn) => {
       btn.addEventListener("click", () => {
         state.mode = btn.dataset.mode;
+        // Practice Conversation skips topic/category selection entirely —
+        // it's an open conversation, not tied to a word list — and goes
+        // straight to picking a language.
+        if (state.mode === "practice") {
+          document.querySelector("#screen-language [data-back]").dataset.back = "screen-mode";
+          showScreen("screen-language");
+          return;
+        }
+        document.querySelector("#screen-language [data-back]").dataset.back = "screen-topictype";
         // Dialogues and Grammar are Learning-only concepts — a multi-choice
         // quiz doesn't map onto a full conversation or a grammar lesson.
         const learningOnly = state.mode === "learning" ? "" : "none";
@@ -867,7 +1052,9 @@
     document.querySelectorAll("[data-lang]").forEach((btn) => {
       btn.addEventListener("click", () => {
         state.lang = btn.dataset.lang;
-        if (state.topicType === "words") {
+        if (state.mode === "practice") {
+          startPracticeConversation();
+        } else if (state.topicType === "words") {
           showScreen("screen-level");
         } else if (state.topicType === "grammar") {
           renderGrammarList();
@@ -941,6 +1128,8 @@
       if (!btn) return;
       openGrammarLesson(Number(btn.dataset.grammarIndex));
     });
+
+    document.getElementById("practice-mic-btn").addEventListener("click", handlePracticeMicClick);
 
     document.getElementById("leaderboard-btn").addEventListener("click", () => {
       renderLeaderboard();
